@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="myPadding">20dp</dimen>
+    <dimen name="myTitleFont">24dp</dimen>
+    <dimen name="myRegularFont">14dp</dimen>
+    <dimen name="rowHeight">80dp</dimen>
+    <dimen name="imagePadding">50dp</dimen>
+    <dimen name="myMarginTop">150dp</dimen>
+    <dimen name="myMargin">30dp</dimen>
+</resources>
