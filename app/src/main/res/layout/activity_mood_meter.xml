@@ -44,6 +44,7 @@
         android:id="@+id/greenButton"
         android:layout_width="135dp"
         android:layout_height="225dp"
+        android:onClick="moodSelected(3)"
         app:srcCompat="@drawable/green"
         tools:layout_editor_absoluteX="88dp"
         tools:layout_editor_absoluteY="403dp" />
