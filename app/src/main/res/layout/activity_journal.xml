@@ -1,40 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/journal_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="177dp"
-        tools:layout_editor_absoluteY="88dp" />
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/myMargin"
+        android:fontFamily="@font/margarine"
+        android:text="Journal"
+        android:textSize="34sp"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="58dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/journal_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginTop="@dimen/myMargin"
+        android:fontFamily="serif-monospace"
+        android:text="Prompt:"
+        android:textSize="24sp"
         tools:layout_editor_absoluteX="74dp"
         tools:layout_editor_absoluteY="148dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editText_journal_entry"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
+        android:layout_marginTop="@dimen/myMargin"
+        android:background="@drawable/bluebell"
+        android:backgroundTint="@color/blue_bell"
         android:ems="10"
+        android:fontFamily="serif-monospace"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Start writing here"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="241dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/save_entry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/myMargin"
+        android:fontFamily="@font/margarine"
+        android:text="Save Entry"
         tools:layout_editor_absoluteX="159dp"
         tools:layout_editor_absoluteY="513dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
