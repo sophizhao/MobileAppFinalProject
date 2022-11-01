@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 
 public class MoodMeterActivity extends AppCompatActivity {
     ImageButton red, yellow, green, blue;
-    private ArrayList<Mood> myMoods = new ArrayList<>();
+    public static ArrayList<Mood> myMoods = new ArrayList<>();
 
 
     @Override
@@ -40,36 +41,44 @@ public class MoodMeterActivity extends AppCompatActivity {
 
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void moodSelected(int mood) throws ParseException {
+    public void moodSelected(View view) throws ParseException {
+        int intMood = Integer.parseInt(view.getTag().toString());
         boolean alreadyAdded = false;
         for(int i = 0; i < myMoods.size(); i++){
             if (myMoods.get(i).getDateCreated().isEqual(java.time.LocalDate.now())){ //if it is today
-                myMoods.get(i).setMood(mood);
+                myMoods.get(i).setMood(intMood);
                 alreadyAdded = true;
             }
         }
         if (!alreadyAdded){
-            myMoods.add(new Mood(mood));
+            myMoods.add(new Mood(intMood));
+            alreadyAdded = true;
         }
-//        myMoods.clear();        // empties the AL so that it can get a fresh copy of data
-//        db.collection("users").document(uid).collection("myMemoryList")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if (task.isSuccessful()) {
-//                            for (DocumentSnapshot doc: task.getResult()) {
-//                                Memory memory = doc.toObject(Memory.class);
-//                                myMemories.add(memory);
-//                            }
-//
-//                            Log.i(TAG, "Success reading data: "+ myMemories.toString());
-//                            firestoreCallback.onCallback(myMemories);
-//                        }
-//                        else {
-//                            Log.d(TAG, "Error getting documents: " + task.getException());
-//                        }
-//                    }
-//                });
     }
+//    @RequiresApi(api = Build.VERSION_CODES.O)
+//    public void moodSelected(View view, String mood) throws ParseException {
+//
+////        myMoods.clear();        // empties the AL so that it can get a fresh copy of data
+////        db.collection("users").document(uid).collection("myMemoryList")
+////                .get()
+////                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+////                    @Override
+////                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+////                        if (task.isSuccessful()) {
+////                            for (DocumentSnapshot doc: task.getResult()) {
+////                                Memory memory = doc.toObject(Memory.class);
+////                                myMemories.add(memory);
+////                            }
+////
+////                            Log.i(TAG, "Success reading data: "+ myMemories.toString());
+////                            firestoreCallback.onCallback(myMemories);
+////                        }
+////                        else {
+////                            Log.d(TAG, "Error getting documents: " + task.getException());
+////                        }
+////                    }
+////                });
+//    }
+
+
 }

@@ -11,95 +11,126 @@
         android:id="@+id/blueButton"
         android:layout_width="135dp"
         android:layout_height="225dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/blue"
-        tools:layout_editor_absoluteX="235dp"
-        tools:layout_editor_absoluteY="403dp" />
+        android:onClick="moodSelected"
+        android:tag="4"/>
+
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="4dp"
         android:text="Low"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="138dp" />
+        app:layout_constraintBottom_toTopOf="@+id/redButton"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="40dp"
         android:rotation="-90"
         android:text="Low"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="601dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/greenButton" />
 
     <ImageButton
         android:id="@+id/yellowButton"
         android:layout_width="135dp"
         android:layout_height="227dp"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/yellow"
-        tools:layout_editor_absoluteX="235dp"
-        tools:layout_editor_absoluteY="165dp" />
+        android:onClick="moodSelected"
+        android:tag="2"/>
 
     <ImageButton
         android:id="@+id/greenButton"
         android:layout_width="135dp"
         android:layout_height="225dp"
-        android:onClick="moodSelected(3)"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="28dp"
+        android:onClick="moodSelected"
+        android:tag="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/green"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="403dp" />
+        />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:rotation="-90"
         android:text="High"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="167dp" />
+        app:layout_constraintEnd_toStartOf="@+id/redButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="4dp"
         android:text="High"
-        tools:layout_editor_absoluteX="330dp"
-        tools:layout_editor_absoluteY="138dp" />
+        app:layout_constraintBottom_toTopOf="@+id/yellowButton"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="135dp"
-        android:layout_height="21dp"
+        android:layout_width="123dp"
+        android:layout_height="23dp"
         android:rotation="-90"
         android:text="Energy Level"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="-32dp"
-        tools:layout_editor_absoluteY="329dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/redButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.616" />
 
     <ImageButton
         android:id="@+id/redButton"
         android:layout_width="135dp"
         android:layout_height="226dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="164dp"
+        android:tag="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/red"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="167dp" />
+        android:onClick="moodSelected"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:text="Happiness"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="183dp"
-        tools:layout_editor_absoluteY="103dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.618"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:text="Mood Meter"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
