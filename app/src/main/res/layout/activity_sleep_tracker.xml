@@ -7,28 +7,55 @@
     tools:context=".SleepTrackerActivity">
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/sleepTrackerTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="104dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/myMargin"
+        android:text="Sleep Tracker"
+        android:textSize="48sp"
+        android:fontFamily="@font/margarine"/>
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/editTextSleepTracker"
+        android:layout_width="284dp"
+        android:layout_height="74dp"
+        android:layout_below="@id/sleepTrackerTV"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="50dp"
         android:ems="10"
+        android:hint="Enter the number of hours slept!"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="196dp" />
+        android:fontFamily="@font/margarine"/>
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:srcCompat="@drawable/sparkplugproto"
-        tools:layout_editor_absoluteX="245dp"
-        tools:layout_editor_absoluteY="533dp" />
+        android:layout_below="@id/logHoursButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/sparkplugproto" />
+
+    <Button
+        android:id="@+id/logHoursButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextSleepTracker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/margarine"
+        android:text="Log Hours" />
+
+    <TextView
+        android:id="@+id/sparkplugTextSleep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logHoursButton"
+        android:layout_marginTop="100dp"
+        android:text="TextView"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>
