@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/welcome_textView"
+        android:id="@+id/welcomeTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -18,7 +18,7 @@
         android:textSize="34sp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/usernameET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -31,7 +31,7 @@
         android:layout_gravity="center_horizontal"/>
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/passwordET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -44,24 +44,26 @@
         android:layout_gravity="center_horizontal"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/logInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/myMargin"
         android:fontFamily="@font/margarine"
         android:text="Log In"
+        android:onClick="logInClicked"
         tools:layout_editor_absoluteX="159dp"
         tools:layout_editor_absoluteY="411dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/myMargin"
         android:fontFamily="@font/margarine"
         android:text="Sign Up"
+        android:onClick="signUpClicked"
         tools:layout_editor_absoluteX="157dp"
         tools:layout_editor_absoluteY="487dp" />
 

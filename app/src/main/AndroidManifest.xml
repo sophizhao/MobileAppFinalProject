@@ -14,7 +14,7 @@
         android:theme="@style/Theme.SparkJoy"
         tools:targetApi="31">
         <activity
-            android:name=".selectActionActivity"
+            android:name=".SelectActionActivity"
             android:exported="false" />
         <activity
             android:name=".WaterLogActivity"
