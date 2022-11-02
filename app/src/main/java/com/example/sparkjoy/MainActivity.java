@@ -12,9 +12,6 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuthEmailException;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -41,28 +38,6 @@ public class MainActivity extends AppCompatActivity  {
         signUpB = findViewById(R.id.signUpButton);
         userNameET = findViewById(R.id.usernameET);
         passwordET = findViewById(R.id.passwordET);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        updateUI();
-    }
-
-    /**
-     * This method will check to see if a user is already signed it to the app.
-     * If a user is signed in, then they will be taken to SelectActionActivity
-     * instead of loading this main screen
-     */
-
-    public void updateUI() {
-        // if the user is already logged in, then they bypass this screen
-        Log.d(TAG, "inside updateUI: " + firebaseHelper.getmAuth().getUid());
-        if (firebaseHelper.getmAuth().getUid() != null) {
-            Intent intent = new Intent(MainActivity.this, SelectActionActivity.class);
-            startActivity(intent);
-        }
     }
 
     /**
@@ -101,44 +76,19 @@ public class MainActivity extends AppCompatActivity  {
                                 firebaseHelper.updateUid(firebaseHelper.getmAuth().getUid());
                                 Log.d(TAG, userName + " created and logged in");
 
-                                firebaseHelper.addUserToFirestore(userName, firebaseHelper.getmAuth().getUid());
-
+                                // we will implement this later
+                                // updateIfLoggedIn();
+                                // firebaseHelper.attachReadDataToUser();
 
                                 Intent intent = new Intent(MainActivity.this, SelectActionActivity.class);
                                 startActivity(intent);
                             }
                             else {
-   /*
-   This prevents the app from CRASHING when the user enters bad items
-   (duplicate email or badly formatted email most likely)
-
-   https://stackoverflow.com/questions/37859582/how-to-catch-a-firebase-auth-specific-exceptions
-
-    */
-
-                                try {
-                                    throw task.getException();
-                                } catch (FirebaseAuthInvalidCredentialsException e) {
-                                    // poorly formatted email address
-                                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    Log.d(TAG, "Sign up failed for " + userName + " " + password + e.getMessage());
-                                } catch (FirebaseAuthEmailException e) {
-                                    // duplicate email used
-                                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    Log.d(TAG, "Sign up failed for " + userName + " " + password + e.getMessage());
-                                } catch (Exception e) {
-                                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    Log.d(TAG, "Sign up failed for " + userName + " " + password + e.getMessage());
-                                }
-
-
-                                // this log message will tell the name of the exception.  If you want to add this to the catch
-                                // statement above, then just add another catch above the generic one at the end
-
+                                // if sign up fails, display a message to the user along with the exception from firebase auth
                                 Log.d(TAG, "Sign up failed for " + userName + " " + password +
-                                        " because of \n"+ task.getException());
-                            }
+                                        " because of \n"+ task.getResult());
 
+                            }
                         }
                     });
         }
@@ -160,6 +110,9 @@ public class MainActivity extends AppCompatActivity  {
                                 // Sign in success, update currently signed in user's info
                                 firebaseHelper.updateUid(firebaseHelper.getmAuth().getUid());
 
+                                // we will implement this later
+                                // updateIfLoggedIn();
+                                // firebaseHelper.attachReadDataToUser();
 
                                 Log.d(TAG, userName + " logged in");
 
@@ -167,36 +120,11 @@ public class MainActivity extends AppCompatActivity  {
                                 startActivity(intent);
                             }
                             else {
-    /*
-   This notifies the user of WHY they couldn't log in
-
-   https://stackoverflow.com/questions/37859582/how-to-catch-a-firebase-auth-specific-exceptions
-
-    */
-
-                                try {
-                                    throw task.getException();
-                                } catch (FirebaseAuthInvalidCredentialsException e) {
-                                    // wrong password
-                                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    Log.d(TAG, "Log in failed for " + userName + " " + password + e.getMessage());
-                                } catch (FirebaseAuthInvalidUserException e) {
-                                    // wrong email, no user found with this email
-                                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    Log.d(TAG, "Log in failed for " + userName + " " + password + e.getMessage());
-                                } catch (Exception e) {
-                                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    Log.d(TAG, "Log in failed for " + userName + " " + password + e.getMessage());
-                                }
+                                // if log in fails, display a message to the user along with the exception from firebase auth
+                                Log.d(TAG, "Log in failed for " + userName + " " + password +
+                                        " because of \n"+ task.toString());
                             }
-                            // this log message will tell the name of the exception.  If you want to add this to the catch
-                            // statement above, then just add another catch above the generic one at the end
-
-                            Log.d(TAG, "Log in failed for " + userName + " " + password +
-                                    " because of \n"+ task.getException());
                         }
-
-
                     });
 
 
@@ -231,23 +159,8 @@ public class MainActivity extends AppCompatActivity  {
             return false;
         } else {
             Log.i(TAG, userName + " " + password + " is set after getValues(), return true");
-            userName = removeTrailingSpaces(userName);
             return true;
         }
     }
-    /**
-     * This method accepts the email the user wants to submit for FirebaseAuth
-     * and removes an extra spaces that may have accidentally been added at the end by
-     * the auto-correct keyboard.  This typically happens when the email is used all
-     * the time and shows up as a suggestion for the user.
-     *
-     * @param email
-     * @return a String without trailing spaces
-     */
-    private String removeTrailingSpaces(String email) {
-        String lastChar = email.substring(email.length() -1);
-        if (lastChar.equals(" "))
-            email = email.substring(0, email.length()-1);
-        return email;
-    }
+
 }

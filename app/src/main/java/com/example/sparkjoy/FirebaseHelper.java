@@ -1,5 +1,6 @@
 package com.example.sparkjoy;
 
+
 import static androidx.core.content.ContextCompat.startActivity;
 
 import android.app.Activity;
@@ -47,15 +48,10 @@ public class FirebaseHelper {
     public final String TAG = "Denna";
     private static String uid = null;      // var will be updated for currently signed in user
     private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
-    // we don't need this yet
-    // private ArrayList<Memory> myItems = new ArrayList<>();
 
 
     public FirebaseHelper() {
-        mAuth = FirebaseAuth.getInstance();         // must enable email/password signup for this to work
-        db = FirebaseFirestore.getInstance();       // must create a database on firestore for this to work
-                    // instantiate arraylist for app use
+        mAuth = FirebaseAuth.getInstance();
     }
 
 
@@ -68,28 +64,6 @@ public class FirebaseHelper {
         this.uid = null;
     }
 
-
-
-    public void addUserToFirestore(String name, String newUID) {
-        // Create a new user with their name
-        Map<String, Object> user = new HashMap<>();
-        user.put("name", name);
-        // Add a new document with a docID = to the authenticated user's UID
-        db.collection("users").document(newUID)
-                .set(user)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Log.d(TAG, name + "'s user account added");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding user account", e);
-                    }
-                });
-    }
 
     public void updateUid(String uid) {
         this.uid = uid;
