@@ -34,6 +34,14 @@ public class Mood {
         this.mood = mood;
     }
 
+    public boolean equals(Object o){
+        if(o instanceof Mood){
+            Mood p = (Mood) o;
+            return this.dateCreated.equals(p.getDateCreated());
+        } else
+            return false;
+    }
+
     public LocalDate getDateCreated() {
         return dateCreated;
     }

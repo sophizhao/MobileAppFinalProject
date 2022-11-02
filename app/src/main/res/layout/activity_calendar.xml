@@ -13,15 +13,12 @@
         tools:layout_editor_absoluteX="15dp"
         tools:layout_editor_absoluteY="342dp" />
 
-    <ScrollView
-        android:layout_width="391dp"
-        android:layout_height="340dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+    <TextView
+        android:id="@+id/moodTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mood: "
+        tools:layout_editor_absoluteX="171dp"
+        tools:layout_editor_absoluteY="41dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
