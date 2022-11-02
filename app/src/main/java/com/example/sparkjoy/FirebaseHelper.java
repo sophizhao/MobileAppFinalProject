@@ -48,10 +48,19 @@ public class FirebaseHelper {
     public final String TAG = "Denna";
     private static String uid = null;      // var will be updated for currently signed in user
     private FirebaseAuth mAuth;
-
+    private FirebaseFirestore db;
+    private ArrayList<Mood> moods;
+    private ArrayList<String> journalEntries;
+    private ArrayList<Integer> sleepLog;
+    private ArrayList<Integer> waterLog;
 
     public FirebaseHelper() {
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        moods = new ArrayList<>();
+        journalEntries = new ArrayList<>();
+        sleepLog = new ArrayList<>();
+        waterLog = new ArrayList<>();
     }
 
 
@@ -67,5 +76,106 @@ public class FirebaseHelper {
 
     public void updateUid(String uid) {
         this.uid = uid;
+    }
+
+    public void attachReadDataToUser() {
+        // This is necessary to avoid the issues we ran into with data displaying before it
+        // returned from the asynch method calls
+        if (mAuth.getCurrentUser() != null) {
+            uid = mAuth.getUid();
+            readData(new FirestoreCallback() {
+                @Override
+                public void onCallback(ArrayList<Mood> moods) {
+                    Log.d(TAG, "Inside attachReadDataToUser, onCallback " + moods.toString());
+                }
+            });
+        }
+        else {
+            Log.d(TAG, "No one logged in");
+        }
+    }
+
+    public void addUserToFirestore(String name, String newUID) {
+        // Create a new user with their name
+        Map<String, Object> user = new HashMap<>();
+        user.put("name", name);
+        // Add a new document with a docID = to the authenticated user's UID
+        db.collection("users").document(newUID)
+                .set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d(TAG, name + "'s user account added");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error adding user account", e);
+                    }
+                });
+    }
+
+    public void addData(Mood m) {
+        // add Memory m to the database
+        // this method is overloaded and incorporates the interface to handle the asynch calls
+        addData(m, new FirestoreCallback() {
+            @Override
+            public void onCallback(ArrayList<Mood> myList) {
+                Log.i(TAG, "Inside addData, onCallback :" + moods.toString());
+            }
+        });
+    }
+
+    private void addData(Mood m, FirestoreCallback firestoreCallback) {
+        db.collection("users").document(uid).collection("myMemoryList")
+                .add(m)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        // This will set the docID key for the Memory that was just added.
+                        db.collection("users").document(uid).collection("myMemoryList").
+                                document(documentReference.getId()).update("docID", documentReference.getId());
+                        Log.i(TAG, "just added ");
+                        readData(firestoreCallback);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i(TAG, "Error adding document", e);
+                    }
+                });
+    }
+
+    public ArrayList<Mood> getMoods() {
+        return moods;
+    }
+
+    private void readData(FirestoreCallback firestoreCallback) {
+        moods.clear();        // empties the AL so that it can get a fresh copy of data
+        db.collection("users").document(uid).collection("myMemoryList")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot doc: task.getResult()) {
+                                Mood mood = doc.toObject(Mood.class);
+                                moods.add(mood);
+                            }
+
+                            Log.i(TAG, "Success reading data: "+ moods.toString());
+                            firestoreCallback.onCallback(moods);
+                        }
+                        else {
+                            Log.d(TAG, "Error getting documents: " + task.getException());
+                        }
+                    }
+                });
+    }
+
+    public interface FirestoreCallback {
+        void onCallback(ArrayList<Mood> myList);
     }
 }
