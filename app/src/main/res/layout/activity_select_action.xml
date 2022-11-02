@@ -1,64 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SelectActionActivity">
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="108dp" />
+    <Button
+        android:id="@+id/buttonViewPotion"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_below="@id/textViewSparkJoy"
+        android:layout_marginTop="@dimen/myMarginTop"
+        android:text="Potion" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="264dp" />
+        android:id="@+id/buttonViewJournal"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_below="@id/textViewSparkJoy"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/myMarginTop"
+        android:text="Journal" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="353dp" />
+        android:id="@+id/buttonViewMood"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_below="@id/textViewSparkJoy"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/myMarginTop"
+        android:text="Mood Meter" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="450dp" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+        android:id="@+id/buttonViewWater"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_below="@id/buttonViewPotion"
+        android:text="Water Log"
         tools:layout_editor_absoluteX="267dp"
         tools:layout_editor_absoluteY="263dp" />
 
     <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="267dp"
-        tools:layout_editor_absoluteY="353dp" />
+        android:id="@+id/buttonSleepTracker"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_below="@id/buttonViewJournal"
+        android:layout_centerHorizontal="true"
+        android:text="Sleep Tracker" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/buttonCalendar"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_below="@id/buttonViewMood"
+        android:layout_alignParentRight="true"
+        android:text="Calendar" />
+
+
+    <TextView
+        android:id="@+id/textViewSparkJoy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="267dp"
-        tools:layout_editor_absoluteY="447dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/margarine"
+        android:text="Spark Joy"
+        android:textSize="34sp"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="108dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/sparkplugproto"
+        android:layout_below="@id/buttonCalendar"
+        android:layout_marginTop="@dimen/myMarginTop"
+        android:layout_alignParentRight="true"/>
+
+
+</RelativeLayout>

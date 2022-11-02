@@ -7,4 +7,6 @@
     <dimen name="imagePadding">50dp</dimen>
     <dimen name="myMarginTop">150dp</dimen>
     <dimen name="myMargin">30dp</dimen>
+    <dimen name="buttonWidth">133dp</dimen>
+    <dimen name="buttonHeight">100dp</dimen>
 </resources>
