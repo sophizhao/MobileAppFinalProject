@@ -7,31 +7,31 @@
     tools:context=".SleepTrackerActivity">
 
     <TextView
-        android:id="@+id/sleepTrackerTV"
+        android:id="@+id/titleTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/myMargin"
+        android:fontFamily="@font/margarine"
         android:text="Sleep Tracker"
-        android:textSize="48sp"
-        android:fontFamily="@font/margarine"/>
+        android:textSize="48sp" />
 
     <EditText
-        android:id="@+id/editTextSleepTracker"
+        android:id="@+id/hoursSleptET"
         android:layout_width="284dp"
         android:layout_height="74dp"
-        android:layout_below="@id/sleepTrackerTV"
+        android:layout_below="@id/titleTV"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="50dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="50dp"
         android:ems="10"
+        android:fontFamily="@font/margarine"
         android:hint="Enter the number of hours slept!"
-        android:inputType="textPersonName"
-        android:fontFamily="@font/margarine"/>
+        android:inputType="textPersonName" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/sparkplug"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_below="@id/logHoursButton"
@@ -44,18 +44,19 @@
         android:id="@+id/logHoursButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextSleepTracker"
+        android:layout_below="@id/hoursSleptET"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/margarine"
-        android:text="Log Hours" />
+        android:text="Log Hours"
+        app:cornerRadius="20dp" />
 
     <TextView
         android:id="@+id/sparkplugTextSleep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/logHoursButton"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:text="TextView"
-        android:layout_centerHorizontal="true"/>
+        android:text="TextView" />
 </RelativeLayout>
