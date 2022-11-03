@@ -2,6 +2,8 @@ package com.example.sparkjoy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -82,6 +84,7 @@ public class MainActivity extends AppCompatActivity  {
 
                                 Intent intent = new Intent(MainActivity.this, SelectActionActivity.class);
                                 startActivity(intent);
+
                             }
                             else {
                                 // if sign up fails, display a message to the user along with the exception from firebase auth
