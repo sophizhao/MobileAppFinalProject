@@ -30,6 +30,7 @@
         android:layout_height="@dimen/buttonHeight"
         android:layout_alignParentRight="true"
         android:layout_marginTop="400dp"
+        android:onClick="switchMoodMeter"
         android:text="Mood Meter"
         app:cornerRadius="30dp" />
 
@@ -56,8 +57,9 @@
         android:layout_height="@dimen/buttonHeight"
         android:layout_below="@id/buttonViewMood"
         android:layout_alignParentRight="true"
+        android:onClick="switchCalendar"
         android:text="Calendar"
-        app:cornerRadius="30dp"/>
+        app:cornerRadius="30dp" />
 
     <TextView
         android:id="@+id/textViewSparkJoy"

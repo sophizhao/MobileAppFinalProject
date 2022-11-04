@@ -60,8 +60,5 @@ public class CalendarActivity extends AppCompatActivity {
         return null;
     }
 
-    public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-
-    }
 //    put this in mood class?
 }

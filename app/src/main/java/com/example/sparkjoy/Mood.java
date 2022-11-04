@@ -42,6 +42,14 @@ public class Mood {
             return false;
     }
 
+    @Override
+    public String toString() {
+        return "Mood{" +
+                "dateCreated=" + dateCreated +
+                ", mood=" + mood +
+                '}';
+    }
+
     public LocalDate getDateCreated() {
         return dateCreated;
     }

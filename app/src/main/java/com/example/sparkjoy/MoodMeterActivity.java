@@ -48,12 +48,14 @@ public class MoodMeterActivity extends AppCompatActivity {
             if (myMoods.get(i).getDateCreated().isEqual(java.time.LocalDate.now())){ //if it is today
                 myMoods.get(i).setMood(intMood);
                 alreadyAdded = true;
+                System.out.println(myMoods.get(i));
             }
         }
         if (!alreadyAdded){
             myMoods.add(new Mood(intMood));
             alreadyAdded = true;
         }
+
     }
 //    @RequiresApi(api = Build.VERSION_CODES.O)
 //    public void moodSelected(View view, String mood) throws ParseException {

@@ -10,15 +10,21 @@
         android:id="@+id/calendarView"
         android:layout_width="363dp"
         android:layout_height="299dp"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="342dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moodTV"
+        app:layout_constraintVertical_bias="0.946" />
 
     <TextView
         android:id="@+id/moodTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:text="Mood: "
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="41dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
