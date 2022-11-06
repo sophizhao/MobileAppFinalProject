@@ -12,11 +12,13 @@
         android:id="@+id/welcomeTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/myMarginTop"
+        android:layout_marginTop="125dp"
+        android:layout_marginLeft="30dp"
         android:fontFamily="@font/margarine"
         android:text="Welcome to Spark Joy!"
-        android:textSize="34sp" />
+        android:textSize="26sp"
+        android:textColor="@color/cream"
+        />
 
     <EditText
         android:id="@+id/usernameET"

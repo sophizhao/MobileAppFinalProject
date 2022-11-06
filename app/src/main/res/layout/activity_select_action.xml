@@ -69,8 +69,8 @@
         android:layout_marginTop="100dp"
         android:fontFamily="@font/margarine"
         android:text="Spark Joy"
-        android:textColor="#F3EBC4"
-        android:textSize="48sp"/>
+        android:textColor="@color/cream"
+        android:textSize="48sp" />
 
 
 </RelativeLayout>
