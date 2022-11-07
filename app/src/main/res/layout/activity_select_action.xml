@@ -21,8 +21,9 @@
         android:layout_height="@dimen/buttonHeight"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="400dp"
+        android:onClick="switchJournal"
         android:text="Journal"
-        app:cornerRadius="30dp"/>
+        app:cornerRadius="30dp" />
 
     <Button
         android:id="@+id/buttonViewMood"
@@ -39,6 +40,7 @@
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         android:layout_below="@id/buttonViewPotion"
+        android:onClick="switchWaterLog"
         android:text="Water Log"
         app:cornerRadius="30dp" />
 
@@ -48,8 +50,9 @@
         android:layout_height="@dimen/buttonHeight"
         android:layout_below="@id/buttonViewJournal"
         android:layout_centerHorizontal="true"
+        android:onClick="switchSleepTracker"
         android:text="Sleep Tracker"
-        app:cornerRadius="30dp"/>
+        app:cornerRadius="30dp" />
 
     <Button
         android:id="@+id/buttonCalendar"

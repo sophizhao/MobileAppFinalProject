@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="125dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="20dp"
         android:fontFamily="@font/margarine"
         android:text="Welcome to Spark Joy!"
         android:textSize="26sp"
@@ -29,8 +29,9 @@
         android:hint="Username"
         tools:layout_editor_absoluteX="97dp"
         tools:layout_editor_absoluteY="204dp"
-        android:layout_marginTop="@dimen/myMarginTop"
+        android:layout_marginTop="225dp"
         android:fontFamily="@font/margarine"
+        android:background="@drawable/rounded_edit_text"
         android:layout_gravity="center_horizontal"/>
 
     <EditText
@@ -44,7 +45,8 @@
         tools:layout_editor_absoluteY="263dp"
         android:layout_marginTop="@dimen/myMargin"
         android:fontFamily="@font/margarine"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_edit_text"/>
 
     <Button
         android:id="@+id/logInButton"
