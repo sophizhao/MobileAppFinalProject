@@ -28,4 +28,23 @@ public class SelectActionActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void switchWaterLog(View view) {
+        Log.i(TAG, "user is switching to water log");
+        Intent intent = new Intent(SelectActionActivity.this, WaterLogActivity.class);
+        startActivity(intent);
+    }
+
+    public void switchSleepTracker(View view) {
+        Log.i(TAG, "user is switching to sleep tracker");
+        Intent intent = new Intent(SelectActionActivity.this, SleepTrackerActivity.class);
+        startActivity(intent);
+    }
+
+    public void switchJournal(View view) {
+        Log.i(TAG, "user is switching to journal");
+        Intent intent = new Intent(SelectActionActivity.this, JournalActivity.class);
+        startActivity(intent);
+    }
+
+
 }
