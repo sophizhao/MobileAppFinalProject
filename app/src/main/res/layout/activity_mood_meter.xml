@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MoodMeterActivity"
-    >
+    tools:context=".MoodMeterActivity">
 
     <ImageButton
         android:id="@+id/blueButton"
@@ -13,11 +12,11 @@
         android:layout_height="225dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="28dp"
+        android:onClick="moodSelected"
+        android:tag="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/blue"
-        android:onClick="moodSelected"
-        android:tag="4"/>
+        app:srcCompat="@drawable/blue" />
 
 
     <TextView
@@ -47,11 +46,11 @@
         android:layout_height="227dp"
         android:layout_marginTop="164dp"
         android:layout_marginEnd="20dp"
+        android:onClick="moodSelected"
+        android:tag="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/yellow"
-        android:onClick="moodSelected"
-        android:tag="2"/>
+        app:srcCompat="@drawable/yellow" />
 
     <ImageButton
         android:id="@+id/greenButton"
@@ -63,8 +62,7 @@
         android:tag="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/green"
-        />
+        app:srcCompat="@drawable/green" />
 
     <TextView
         android:id="@+id/textView6"
@@ -104,11 +102,11 @@
         android:layout_height="226dp"
         android:layout_marginStart="88dp"
         android:layout_marginTop="164dp"
+        android:onClick="moodSelected"
         android:tag="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/red"
-        android:onClick="moodSelected"/>
+        app:srcCompat="@drawable/red" />
 
     <TextView
         android:id="@+id/textView2"
@@ -132,5 +130,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ratIV"
+        android:layout_width="323dp"
+        android:layout_height="248dp"
+        android:layout_marginTop="288dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.681"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hat_rat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
