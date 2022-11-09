@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SelectActionActivity"
-    android:background="@drawable/pixel_home">
+    android:background="@drawable/pixelnight">
 
     <Button
         android:id="@+id/buttonViewPotion"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         android:layout_marginTop="400dp"
+        android:backgroundTint="@color/cream"
         android:text="Potion"
         app:cornerRadius="30dp" />
 
@@ -22,6 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="400dp"
         android:onClick="switchJournal"
+        android:backgroundTint="@color/cream"
         android:text="Journal"
         app:cornerRadius="30dp" />
 
@@ -32,6 +34,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="400dp"
         android:onClick="switchMoodMeter"
+        android:backgroundTint="@color/cream"
         android:text="Mood Meter"
         app:cornerRadius="30dp" />
 
@@ -40,6 +43,7 @@
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         android:layout_below="@id/buttonViewPotion"
+        android:backgroundTint="@color/cream"
         android:onClick="switchWaterLog"
         android:text="Water Log"
         app:cornerRadius="30dp" />
@@ -49,6 +53,7 @@
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         android:layout_below="@id/buttonViewJournal"
+        android:backgroundTint="@color/cream"
         android:layout_centerHorizontal="true"
         android:onClick="switchSleepTracker"
         android:text="Sleep Tracker"
@@ -61,6 +66,7 @@
         android:layout_below="@id/buttonViewMood"
         android:layout_alignParentRight="true"
         android:onClick="switchCalendar"
+        android:backgroundTint="@color/cream"
         android:text="Calendar"
         app:cornerRadius="30dp" />
 
@@ -68,8 +74,8 @@
         android:id="@+id/textViewSparkJoy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="110dp"
         android:fontFamily="@font/margarine"
         android:text="Spark Joy"
         android:textColor="@color/cream"

@@ -5,44 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SleepTrackerActivity"
-    android:background="@drawable/img">
+    android:background="@drawable/pixel_city">
 
     <TextView
         android:id="@+id/titleTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/myMargin"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/margarine"
         android:text="Sleep Tracker"
-        android:textSize="48sp"
-        android:textColor="@color/cream"/>
+        android:textColor="@color/space_cadet"
+        android:textSize="48sp" />
 
     <EditText
         android:id="@+id/hoursSleptET"
-        android:layout_width="284dp"
-        android:layout_height="74dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/titleTV"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="50dp"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="50dp"
+        android:background="@drawable/space_rounded_edit_text"
         android:ems="10"
         android:fontFamily="@font/margarine"
-        android:hint="Enter the number of hours slept!"
+        android:hint="Enter hours!"
         android:inputType="textPersonName"
-        android:textColor="@color/cream"
-        android:textColorHint="@color/cream" />
-
-    <ImageView
-        android:id="@+id/sparkplug"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_below="@id/logHoursButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="50dp"
-        app:srcCompat="@drawable/sparkplugproto" />
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <Button
         android:id="@+id/logHoursButton"
@@ -51,16 +43,10 @@
         android:layout_below="@id/hoursSleptET"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
+        android:backgroundTint="@color/space_cadet"
         android:fontFamily="@font/margarine"
+        android:textColor="@color/white"
         android:text="Log Hours"
         app:cornerRadius="20dp" />
 
-    <TextView
-        android:id="@+id/sparkplugTextSleep"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/logHoursButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:text="TextView" />
 </RelativeLayout>
