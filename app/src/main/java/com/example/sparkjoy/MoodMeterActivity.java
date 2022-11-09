@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class MoodMeterActivity extends AppCompatActivity {
     ImageButton red, yellow, green, blue;
     public static ArrayList<Mood> myMoods = new ArrayList<>();
+    final String TAG = "Sparky";
 
 
     @Override
@@ -52,7 +53,9 @@ public class MoodMeterActivity extends AppCompatActivity {
             }
         }
         if (!alreadyAdded){
-            myMoods.add(new Mood(intMood));
+            Mood newMood = new Mood(intMood);
+            myMoods.add(newMood);
+            Log.d(TAG, "Mood set to " + newMood);
             alreadyAdded = true;
         }
 
