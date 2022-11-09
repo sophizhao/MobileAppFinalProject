@@ -15,6 +15,7 @@
         android:layout_marginTop="@dimen/myMargin"
         android:fontFamily="@font/margarine"
         android:text="Water Log"
+        android:textColor="@color/space_cadet"
         android:textSize="48sp" />
 
     <EditText
