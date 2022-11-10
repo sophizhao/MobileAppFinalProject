@@ -128,13 +128,13 @@ public class FirebaseHelper {
     }
 
     private void addData(Mood m, FirestoreCallback firestoreCallback) {
-        db.collection("users").document(uid).collection("myMemoryList")
+        db.collection("users").document(uid).collection("myMoods")
                 .add(m)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         // This will set the docID key for the Memory that was just added.
-                        db.collection("users").document(uid).collection("myMemoryList").
+                        db.collection("users").document(uid).collection("myMoods").
                                 document(documentReference.getId()).update("docID", documentReference.getId());
                         Log.i(TAG, "just added ");
                         readData(firestoreCallback);
