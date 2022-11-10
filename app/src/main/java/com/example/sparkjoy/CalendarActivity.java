@@ -14,6 +14,7 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormatSymbols;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,7 +22,7 @@ import java.time.ZoneId;
 import java.util.Calendar;
 
 public class CalendarActivity extends AppCompatActivity {
-    TextView moodDisplay;
+    TextView moodDisplay, dateDisplay;
     long mms;
     final String TAG = "Sparky";
 
@@ -33,6 +34,7 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         moodDisplay = findViewById(R.id.moodTV);
+        dateDisplay = findViewById(R.id.dateTV);
         calendar = (CalendarView) findViewById(R.id.calendarView);
 
 
@@ -40,7 +42,8 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day) {
                 month++;
-                Toast.makeText(getApplicationContext(), month + "/" + day +"/" + year, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), month + "/" + day +"/" + year, Toast.LENGTH_LONG).show();
+                displayDate(year, month, day);
                 Calendar c = Calendar.getInstance();
                 month--;
                 c.set(year, month, day);
@@ -58,14 +61,19 @@ public class CalendarActivity extends AppCompatActivity {
         switch(findMoodSelected()){
             case 0:
                 moodDisplay.setText("No mood selected for today. Boring.");
+                break;
             case 1:
                 moodDisplay.setText("Mood: High energy, low happiness");
+                break;
             case 2:
                 moodDisplay.setText("Mood: High energy, high happiness");
+                break;
             case 3:
                 moodDisplay.setText("Mood: Low energy, low happiness");
+                break;
             case 4:
                 moodDisplay.setText("Mood: Low energy, High happiness");
+                break;
         }
 
         Log.d(TAG, "Mood selected for day");
@@ -87,5 +95,9 @@ public class CalendarActivity extends AppCompatActivity {
         return 0;
     }
 
+    public void displayDate(int year, int month, int day){
+        String monthString = new DateFormatSymbols().getMonths()[month-1];
+        dateDisplay.setText(monthString + " " + day + ", " + year);
+    }
 //    put this in mood class?
 }

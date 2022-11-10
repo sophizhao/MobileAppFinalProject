@@ -60,30 +60,30 @@ public class MoodMeterActivity extends AppCompatActivity {
         }
 
     }
-//    @RequiresApi(api = Build.VERSION_CODES.O)
-//    public void moodSelected(View view, String mood) throws ParseException {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void moodSelected(View view, String mood) throws ParseException {
+
+//        myMoods.clear();        // empties the AL so that it can get a fresh copy of data
+//        db.collection("users").document(uid).collection("myMemoryList")
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful()) {
+//                            for (DocumentSnapshot doc: task.getResult()) {
+//                                Memory memory = doc.toObject(Memory.class);
+//                                myMemories.add(memory);
+//                            }
 //
-////        myMoods.clear();        // empties the AL so that it can get a fresh copy of data
-////        db.collection("users").document(uid).collection("myMemoryList")
-////                .get()
-////                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-////                    @Override
-////                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-////                        if (task.isSuccessful()) {
-////                            for (DocumentSnapshot doc: task.getResult()) {
-////                                Memory memory = doc.toObject(Memory.class);
-////                                myMemories.add(memory);
-////                            }
-////
-////                            Log.i(TAG, "Success reading data: "+ myMemories.toString());
-////                            firestoreCallback.onCallback(myMemories);
-////                        }
-////                        else {
-////                            Log.d(TAG, "Error getting documents: " + task.getException());
-////                        }
-////                    }
-////                });
-//    }
+//                            Log.i(TAG, "Success reading data: "+ myMemories.toString());
+//                            firestoreCallback.onCallback(myMemories);
+//                        }
+//                        else {
+//                            Log.d(TAG, "Error getting documents: " + task.getException());
+//                        }
+//                    }
+//                });
+    }
 
 
 }

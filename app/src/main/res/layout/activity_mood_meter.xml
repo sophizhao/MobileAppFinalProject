@@ -133,11 +133,11 @@
 
     <ImageView
         android:id="@+id/ratIV"
-        android:layout_width="323dp"
-        android:layout_height="248dp"
-        android:layout_marginTop="288dp"
+        android:layout_width="82dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="564dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.681"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/hat_rat" />
