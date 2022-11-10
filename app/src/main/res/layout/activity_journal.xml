@@ -4,16 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/pixel_home">
+    android:background="@drawable/pixel_paster">
 
     <TextView
         android:id="@+id/journal_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/myMargin"
+        android:layout_marginTop="@dimen/myMarginTop"
         android:fontFamily="@font/margarine"
         android:text="Journal"
+        android:textColor="@color/cream"
         android:textSize="34sp"
         tools:layout_editor_absoluteX="159dp"
         tools:layout_editor_absoluteY="58dp" />
@@ -22,8 +23,9 @@
         android:id="@+id/journal_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/myMargin"
-        android:fontFamily="serif-monospace"
+        android:layout_marginTop="75dp"
+        android:fontFamily="@font/margarine"
+        android:textColor="@color/cream"
         android:text="Prompt:"
         android:textSize="24sp"
         tools:layout_editor_absoluteX="74dp"
@@ -31,13 +33,12 @@
 
     <EditText
         android:id="@+id/editText_journal_entry"
-        android:layout_width="wrap_content"
-        android:layout_height="400dp"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/myMargin"
-        android:background="@drawable/bluebell"
-        android:backgroundTint="@color/lavender_blush"
+        android:background="@drawable/cream_rounded_edit_text"
         android:ems="10"
-        android:fontFamily="serif-monospace"
+        android:fontFamily="@font/margarine"
         android:inputType="textPersonName"
         android:hint="Start writing here"
         tools:layout_editor_absoluteX="73dp"

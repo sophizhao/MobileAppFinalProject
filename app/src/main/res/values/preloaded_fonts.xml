@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/andika</item>
         <item>@font/arapey</item>
         <item>@font/bellefair</item>
         <item>@font/bellota</item>
         <item>@font/coustard</item>
         <item>@font/dokdo</item>
+        <item>@font/fredoka_one</item>
         <item>@font/maiden_orange</item>
         <item>@font/margarine</item>
         <item>@font/pt_mono</item>

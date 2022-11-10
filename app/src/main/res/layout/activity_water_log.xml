@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SleepTrackerActivity"
-    android:background="@drawable/pixel_water">
+    android:background="@drawable/pixelnight">
 
     <TextView
         android:id="@+id/waterLogTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/myMargin"
-        android:fontFamily="@font/margarine"
+        android:layout_marginTop="@dimen/myMarginTop"
+        android:fontFamily="@font/fredoka_one"
         android:text="Water Log"
         android:textColor="@color/space_cadet"
         android:textSize="48sp" />
@@ -27,20 +27,14 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="110dp"
         android:layout_marginEnd="50dp"
+        android:background="@drawable/space_rounded_edit_text"
         android:ems="10"
         android:fontFamily="@font/margarine"
         android:hint="Enter the number of ounces drank!"
-        android:inputType="textPersonName" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_below="@id/logWaterButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="50dp"
-        app:srcCompat="@drawable/sparkplugproto" />
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:padding="10dp"/>
 
     <Button
         android:id="@+id/logWaterButton"
@@ -50,14 +44,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/margarine"
-        android:text="Log Water" />
+        android:text="Log Water"
+        android:backgroundTint="@color/space_cadet"
+        android:textColor="@color/white"/>
 
-    <TextView
-        android:id="@+id/sparkplugTextSleep"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/logWaterButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:text="TextView" />
 </RelativeLayout>
