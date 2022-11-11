@@ -49,18 +49,11 @@ public class FirebaseHelper {
     private static String uid = null;      // var will be updated for currently signed in user
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-    private ArrayList<Mood> moods;
-    private ArrayList<String> journalEntries;
-    private ArrayList<Integer> sleepLog;
-    private ArrayList<Integer> waterLog;
+    private ArrayList<DailyInfo> weekly;
 
     public FirebaseHelper() {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-        moods = new ArrayList<>();
-        journalEntries = new ArrayList<>();
-        sleepLog = new ArrayList<>();
-        waterLog = new ArrayList<>();
     }
 
 
@@ -122,7 +115,7 @@ public class FirebaseHelper {
         addData(m, new FirestoreCallback() {
             @Override
             public void onCallback(ArrayList<Mood> myList) {
-                Log.i(TAG, "Inside addData, onCallback :" + moods.toString());
+                //Log.i(TAG, "Inside addData, onCallback :" + moods.toString());
             }
         });
     }
@@ -148,12 +141,12 @@ public class FirebaseHelper {
                 });
     }
 
-    public ArrayList<Mood> getMoods() {
-        return moods;
-    }
+//    public ArrayList<Mood> getMoods() {
+//        //return moods;
+//    }
 
     private void readData(FirestoreCallback firestoreCallback) {
-        moods.clear();        // empties the AL so that it can get a fresh copy of data
+        //moods.clear();        // empties the AL so that it can get a fresh copy of data
         db.collection("users").document(uid).collection("myMemoryList")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -162,11 +155,11 @@ public class FirebaseHelper {
                         if (task.isSuccessful()) {
                             for (DocumentSnapshot doc: task.getResult()) {
                                 Mood mood = doc.toObject(Mood.class);
-                                moods.add(mood);
+                                //moods.add(mood);
                             }
 
-                            Log.i(TAG, "Success reading data: "+ moods.toString());
-                            firestoreCallback.onCallback(moods);
+                            //Log.i(TAG, "Success reading data: "+ moods.toString());
+                            //firestoreCallback.onCallback(moods);
                         }
                         else {
                             Log.d(TAG, "Error getting documents: " + task.getException());
