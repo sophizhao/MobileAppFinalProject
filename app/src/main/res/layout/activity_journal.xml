@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/myMarginTop"
-        android:fontFamily="@font/margarine"
+        android:fontFamily="@font/fredoka_one"
         android:text="Journal"
         android:textColor="@color/cream"
-        android:textSize="34sp"
+        android:textSize="48sp"
         tools:layout_editor_absoluteX="159dp"
         tools:layout_editor_absoluteY="58dp" />
 
@@ -42,7 +42,8 @@
         android:inputType="textPersonName"
         android:hint="Start writing here"
         tools:layout_editor_absoluteX="73dp"
-        tools:layout_editor_absoluteY="241dp" />
+        tools:layout_editor_absoluteY="241dp"
+        android:padding="10dp"/>
 
     <Button
         android:id="@+id/save_entry"
