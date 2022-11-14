@@ -20,13 +20,13 @@ public class DailyInfo {
         this.date = date;
     }
 
-    public ArrayList<DailyInfo> weekly(LocalDate d){
-        ArrayList<DailyInfo> weeklyData = new ArrayList<>();
-        for(int i = 0; i < 7; i++){
-
-        }
-        return weeklyData;
-    }
+//    public ArrayList<DailyInfo> weekly(LocalDate d){
+////        ArrayList<DailyInfo> weeklyData = new ArrayList<>();
+////        for(int i = 0; i < 7; i++){
+////
+////        }
+////        return weeklyData;
+////    }
 
     public DayOfWeek getDayOfWeek (){
         return DayOfWeek;
