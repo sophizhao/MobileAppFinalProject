@@ -49,18 +49,11 @@ public class FirebaseHelper {
     private static String uid = null;      // var will be updated for currently signed in user
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-    private ArrayList<Mood> moods;
-    private ArrayList<String> journalEntries;
-    private ArrayList<Integer> sleepLog;
-    private ArrayList<Integer> waterLog;
+    private ArrayList<DailyInfo> dailyInfos;
 
     public FirebaseHelper() {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-        moods = new ArrayList<>();
-        journalEntries = new ArrayList<>();
-        sleepLog = new ArrayList<>();
-        waterLog = new ArrayList<>();
     }
 
 
@@ -85,8 +78,8 @@ public class FirebaseHelper {
             uid = mAuth.getUid();
             readData(new FirestoreCallback() {
                 @Override
-                public void onCallback(ArrayList<Mood> moods) {
-                    Log.d(TAG, "Inside attachReadDataToUser, onCallback " + moods.toString());
+                public void onCallback(ArrayList<DailyInfo> dailyInfos) {
+                    Log.d(TAG, "Inside attachReadDataToUser, onCallback " + dailyInfos.toString());
                 }
             });
         }
@@ -116,20 +109,20 @@ public class FirebaseHelper {
                 });
     }
 
-    public void addData(Mood m) {
+    public void addData(DailyInfo d) {
         // add Memory m to the database
         // this method is overloaded and incorporates the interface to handle the asynch calls
-        addData(m, new FirestoreCallback() {
+        addData(d, new FirestoreCallback() {
             @Override
-            public void onCallback(ArrayList<Mood> myList) {
-                Log.i(TAG, "Inside addData, onCallback :" + moods.toString());
+            public void onCallback(ArrayList<DailyInfo> myList) {
+                //Log.i(TAG, "Inside addData, onCallback :" + moods.toString());
             }
         });
     }
 
-    private void addData(Mood m, FirestoreCallback firestoreCallback) {
+    private void addData(DailyInfo d, FirestoreCallback firestoreCallback) {
         db.collection("users").document(uid).collection("myMoods")
-                .add(m)
+                .add(d)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
@@ -148,12 +141,12 @@ public class FirebaseHelper {
                 });
     }
 
-    public ArrayList<Mood> getMoods() {
-        return moods;
-    }
+//    public ArrayList<Mood> getMoods() {
+//        //return moods;
+//    }
 
     private void readData(FirestoreCallback firestoreCallback) {
-        moods.clear();        // empties the AL so that it can get a fresh copy of data
+        dailyInfos.clear();        // empties the AL so that it can get a fresh copy of data
         db.collection("users").document(uid).collection("myMemoryList")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -161,12 +154,12 @@ public class FirebaseHelper {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (DocumentSnapshot doc: task.getResult()) {
-                                Mood mood = doc.toObject(Mood.class);
-                                moods.add(mood);
+                                DailyInfo d = doc.toObject(DailyInfo.class);
+                                dailyInfos.add(d);
                             }
 
-                            Log.i(TAG, "Success reading data: "+ moods.toString());
-                            firestoreCallback.onCallback(moods);
+                            Log.i(TAG, "Success reading data: "+ dailyInfos.toString());
+                            firestoreCallback.onCallback(dailyInfos);
                         }
                         else {
                             Log.d(TAG, "Error getting documents: " + task.getException());
@@ -176,6 +169,7 @@ public class FirebaseHelper {
     }
 
     public interface FirestoreCallback {
-        void onCallback(ArrayList<Mood> myList);
+        void onCallback(ArrayList<DailyInfo> myList);
     }
+
 }

@@ -1,13 +1,15 @@
 package com.example.sparkjoy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -32,7 +34,16 @@ public class MainActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+//        View decorView = getWindow().getDecorView();
+//// Hide the status bar.
+//        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+//        decorView.setSystemUiVisibility(uiOptions);
+// Remember that you should never show the action bar if the
+// status bar is hidden, so hide that too if necessary.
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         setContentView(R.layout.activity_main);
 
         firebaseHelper = new FirebaseHelper();
@@ -41,6 +52,21 @@ public class MainActivity extends AppCompatActivity  {
         userNameET = findViewById(R.id.usernameET);
         passwordET = findViewById(R.id.passwordET);
     }
+
+//    @Override
+//    protected void onResume() {
+//
+//        super.onResume();
+//        View decorView = getWindow().getDecorView();
+//// Hide the status bar.
+//        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+//        decorView.setSystemUiVisibility(uiOptions);
+//// Remember that you should never show the action bar if the
+//// status bar is hidden, so hide that too if necessary.
+//        ActionBar actionBar = getActionBar();
+//        actionBar.hide();
+//
+//    }
 
     /**
      * Method first checks if the input is valid.  If it meets the screening criteria from
