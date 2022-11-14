@@ -1,5 +1,9 @@
 package com.example.sparkjoy;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,12 +16,13 @@ public class DailyInfo {
     private LocalDate date;
     private DayOfWeek DayOfWeek;
 
-    public DailyInfo(Mood mood, boolean journaled, double water, double sleep, LocalDate date) {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public DailyInfo(Mood mood, boolean journaled, double water, double sleep) {
         this.mood = mood;
         this.journaled = journaled;
         this.water = water;
         this.sleep = sleep;
-        this.date = date;
+        this.date = java.time.LocalDate.now();
     }
 
 //    public ArrayList<DailyInfo> weekly(LocalDate d){
