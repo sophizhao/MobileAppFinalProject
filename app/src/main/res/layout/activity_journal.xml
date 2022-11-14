@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/pixel_paster">
 
     <TextView
@@ -11,47 +11,59 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/myMarginTop"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/margarine"
         android:text="Journal"
         android:textColor="@color/cream"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="58dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/journal_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/margarine"
-        android:textColor="@color/cream"
         android:text="Prompt:"
+        android:textColor="@color/cream"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="74dp"
-        tools:layout_editor_absoluteY="148dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/journal_textView" />
 
     <EditText
-        android:id="@+id/editText_journal_entry"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/myMargin"
+        android:id="@+id/journalEntry"
+        android:layout_width="304dp"
+        android:layout_height="274dp"
+        android:layout_marginTop="68dp"
+        android:autoText="false"
         android:background="@drawable/cream_rounded_edit_text"
         android:ems="10"
         android:fontFamily="@font/margarine"
-        android:inputType="textPersonName"
+        android:gravity="top"
         android:hint="Start writing here"
-        tools:layout_editor_absoluteX="73dp"
-        tools:layout_editor_absoluteY="241dp" />
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="280"
+        android:maxLines="9"
+        android:padding="@dimen/myPadding"
+        android:scrollHorizontally="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/journal_prompt" />
 
     <Button
-        android:id="@+id/save_entry"
+        android:id="@+id/saveEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/myMargin"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/margarine"
         android:text="Save Entry"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="513dp" />
-</androidx.appcompat.widget.LinearLayoutCompat>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/journalEntry" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import java.text.ParseException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,11 +18,11 @@ public class DailyInfo {
     private DayOfWeek DayOfWeek;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public DailyInfo(Mood mood, boolean journaled, double water, double sleep) {
-        this.mood = mood;
-        this.journaled = journaled;
-        this.water = water;
-        this.sleep = sleep;
+    public DailyInfo() {
+        this.mood = null;
+        this.journaled = false;
+        this.water = 0.0;
+        this.sleep = 0.0;
         this.date = java.time.LocalDate.now();
     }
 

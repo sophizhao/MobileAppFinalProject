@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity  {
 //        decorView.setSystemUiVisibility(uiOptions);
 // Remember that you should never show the action bar if the
 // status bar is hidden, so hide that too if necessary.
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.hide();
         setContentView(R.layout.activity_main);
 
         firebaseHelper = new FirebaseHelper();
