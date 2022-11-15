@@ -11,69 +11,77 @@
         android:id="@+id/buttonViewPotion"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
-        android:layout_marginTop="400dp"
+        android:layout_below="@id/textViewSparkJoy"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="120dp"
         android:backgroundTint="@color/cream"
-        android:text="Potion"
         android:fontFamily="@font/fredoka_one"
-        app:cornerRadius="30dp" />
+        android:text="Potion"
+        app:cornerRadius="25dp" />
 
     <Button
         android:id="@+id/buttonViewJournal"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="400dp"
-        android:onClick="switchJournal"
+        android:layout_below="@id/buttonCalendar"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/cream"
-        android:text="Journal"
         android:fontFamily="@font/fredoka_one"
+        android:onClick="switchJournal"
+        android:text="Journal"
         app:cornerRadius="30dp" />
 
     <Button
         android:id="@+id/buttonViewMood"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="400dp"
-        android:onClick="switchMoodMeter"
+        android:layout_below="@id/buttonViewPotion"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/cream"
-        android:text="Mood Meter"
         android:fontFamily="@font/fredoka_one"
+        android:onClick="switchMoodMeter"
+        android:text="Mood Meter"
         app:cornerRadius="30dp" />
 
     <Button
         android:id="@+id/buttonViewWater"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
-        android:layout_below="@id/buttonViewPotion"
+        android:layout_below="@id/buttonViewJournal"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/cream"
+        android:fontFamily="@font/fredoka_one"
         android:onClick="switchWaterLog"
         android:text="Water Log"
-        android:fontFamily="@font/fredoka_one"
         app:cornerRadius="30dp" />
 
     <Button
         android:id="@+id/buttonSleepTracker"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
-        android:layout_below="@id/buttonViewJournal"
+        android:layout_below="@id/buttonViewMood"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/cream"
-        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/fredoka_one"
         android:onClick="switchSleepTracker"
         android:text="Sleep Tracker"
-        android:fontFamily="@font/fredoka_one"
         app:cornerRadius="30dp" />
 
     <Button
         android:id="@+id/buttonCalendar"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
-        android:layout_below="@id/buttonViewMood"
-        android:layout_alignParentRight="true"
-        android:onClick="switchCalendar"
+        android:layout_below="@id/textViewSparkJoy"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="120dp"
         android:backgroundTint="@color/cream"
-        android:text="Calendar"
         android:fontFamily="@font/fredoka_one"
+        android:onClick="switchCalendar"
+        android:text="Calendar"
         app:cornerRadius="30dp" />
 
     <TextView
@@ -81,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="150dp"
         android:fontFamily="@font/fredoka_one"
         android:text="Spark Joy"
         android:textColor="@color/cream"
