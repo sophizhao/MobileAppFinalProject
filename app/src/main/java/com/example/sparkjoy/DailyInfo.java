@@ -1,6 +1,7 @@
 package com.example.sparkjoy;
 
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -16,6 +17,8 @@ public class DailyInfo {
     private double sleep;
     private LocalDate date;
     private DayOfWeek DayOfWeek;
+    static ArrayList<DailyInfo> allData = new ArrayList<>();
+    final String TAG = "Sparky";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public DailyInfo() {
@@ -24,6 +27,7 @@ public class DailyInfo {
         this.water = 0.0;
         this.sleep = 0.0;
         this.date = java.time.LocalDate.now();
+        allData.add(this);
     }
 
 //    public ArrayList<DailyInfo> weekly(LocalDate d){
@@ -33,6 +37,19 @@ public class DailyInfo {
 ////        }
 ////        return weeklyData;
 ////    }
+
+    public boolean equals(Object o){
+        if(o instanceof DailyInfo){
+            DailyInfo d = (DailyInfo) o;
+            Log.d(TAG, "found a DailyInfo object by date");
+            return this.date.equals(d.getDate());
+        } else
+            return false;
+    }
+
+
+
+
 
     public DayOfWeek getDayOfWeek (){
         return DayOfWeek;

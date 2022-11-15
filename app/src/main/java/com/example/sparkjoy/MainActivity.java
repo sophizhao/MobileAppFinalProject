@@ -1,10 +1,12 @@
 package com.example.sparkjoy;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity  {
     // Use the same TAG all the time for Log statements. Feel free to change the value of TAG
     public final String TAG = "Denna";
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -51,6 +54,16 @@ public class MainActivity extends AppCompatActivity  {
         signUpB = findViewById(R.id.signUpButton);
         userNameET = findViewById(R.id.usernameET);
         passwordET = findViewById(R.id.passwordET);
+
+        boolean alreadyAdded = false;
+        for(int i = 0; i < DailyInfo.allData.size(); i++){
+            if(DailyInfo.allData.get(i).getDate() == java.time.LocalDate.now()){
+                alreadyAdded = true;
+            }
+            if(!alreadyAdded){
+                new DailyInfo();
+            }
+        }
     }
 
 //    @Override
