@@ -30,6 +30,15 @@ public class DailyInfo {
         allData.add(this);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public DailyInfo(LocalDate date) {
+        this.mood = null;
+        this.journaled = false;
+        this.water = 0.0;
+        this.sleep = 0.0;
+        this.date = date;
+    }
+
 //    public ArrayList<DailyInfo> weekly(LocalDate d){
 ////        ArrayList<DailyInfo> weeklyData = new ArrayList<>();
 ////        for(int i = 0; i < 7; i++){
@@ -38,6 +47,10 @@ public class DailyInfo {
 ////        return weeklyData;
 ////    }
 
+    /* https://stackoverflow.com/a/46445252
+    overrided equals() method should allow the .contains method in the Calendar activity and more to check
+    if DailyInfo with the same date exists
+     */
     public boolean equals(Object o){
         if(o instanceof DailyInfo){
             DailyInfo d = (DailyInfo) o;
@@ -47,9 +60,16 @@ public class DailyInfo {
             return false;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "DailyInfo{" +
+                "mood=" + mood +
+                ", journaled=" + journaled +
+                ", water=" + water +
+                ", sleep=" + sleep +
+                ", date=" + date +
+                '}';
+    }
 
     public DayOfWeek getDayOfWeek (){
         return DayOfWeek;

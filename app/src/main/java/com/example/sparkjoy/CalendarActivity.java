@@ -22,7 +22,7 @@ import java.time.ZoneId;
 import java.util.Calendar;
 
 public class CalendarActivity extends AppCompatActivity {
-    TextView moodDisplay, dateDisplay;
+    TextView moodDisplay, dateDisplay, journaledDisplay;
     long mms;
     final String TAG = "Sparky";
 
@@ -35,6 +35,7 @@ public class CalendarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calendar);
         moodDisplay = findViewById(R.id.moodTV);
         dateDisplay = findViewById(R.id.dateTV);
+        journaledDisplay = findViewById(R.id.journaledTV);
         calendar = (CalendarView) findViewById(R.id.calendarView);
 
 
@@ -76,7 +77,13 @@ public class CalendarActivity extends AppCompatActivity {
                 break;
         }
 
-        Log.d(TAG, "Mood selected for day");
+        if(checkIfJournaled()) {
+            journaledDisplay.setText("You journaled today!");
+        } else {
+            journaledDisplay.setText("Someone was feeling lazy...");
+        }
+
+        Log.d(TAG, "Day is loaded");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -93,6 +100,22 @@ public class CalendarActivity extends AppCompatActivity {
             }
         }
         return 0;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public boolean checkIfJournaled(){
+        LocalDate date = Instant.ofEpochMilli(mms).atZone(ZoneId.systemDefault()).toLocalDate();
+
+//        if(DailyInfo.allData.contains(new DailyInfo())){
+            for(int i = 0; i < DailyInfo.allData.size(); i++){
+                if(DailyInfo.allData.get(i).equals(new DailyInfo(date))){
+                    Log.d(TAG, "yes DailyInfo exists for date (journal): " + DailyInfo.allData.indexOf(new DailyInfo(date)));
+
+                    return DailyInfo.allData.get(i).isJournaled();
+                }
+            }
+//        }
+        return false;
     }
 
     public void displayDate(int year, int month, int day){
