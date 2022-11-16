@@ -31,12 +31,15 @@ public class JournalActivity extends AppCompatActivity {
 
 // search through data to see if one exists
         //if data exists for today, set journal to true
-        //if data doesn't, idk just pass
+        //if data doesn't, add new data
 
         if(DailyInfo.allData.contains(new DailyInfo())){
             int ind = DailyInfo.allData.indexOf(new DailyInfo()); //should only check date?!?!?!?!?!??!!
             DailyInfo.allData.get(ind).setJournaled(true);
             Log.d(TAG, "set journal to true");
+        } else {
+            DailyInfo.allData.add(new DailyInfo());
+            DailyInfo.allData.get(DailyInfo.allData.size()-1).setJournaled(true);
         }
 
         journal.setText("");
