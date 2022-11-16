@@ -46,5 +46,10 @@ public class SelectActionActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void switchPotion(View view) {
+        Log.i(TAG, "user is switching to mood meter");
+        Intent intent = new Intent(SelectActionActivity.this, PotionActivity.class);
+        startActivity(intent);
+    }
 
 }
