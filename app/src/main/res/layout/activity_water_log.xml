@@ -32,9 +32,9 @@
         android:fontFamily="@font/margarine"
         android:hint="Enter the number of ounces drank!"
         android:inputType="textPersonName"
+        android:padding="10dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:padding="10dp"/>
+        android:textColorHint="#FFFFFF" />
 
     <Button
         android:id="@+id/logWaterButton"
