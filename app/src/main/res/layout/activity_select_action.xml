@@ -16,6 +16,7 @@
         android:layout_marginTop="120dp"
         android:backgroundTint="@color/cream"
         android:fontFamily="@font/fredoka_one"
+        android:onClick="switchPotion"
         android:text="Potion"
         app:cornerRadius="25dp" />
 
