@@ -61,6 +61,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="36dp"
         android:fontFamily="@font/margarine"
+        android:onClick="addJournalButtonClicked"
         android:text="Save Entry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
