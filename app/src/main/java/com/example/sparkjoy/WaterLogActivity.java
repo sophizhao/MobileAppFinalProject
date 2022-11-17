@@ -28,7 +28,7 @@ public class WaterLogActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void addJournalButtonClicked(View view){
-        Toast.makeText(getApplicationContext(), "Journal added!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Ounces logged!", Toast.LENGTH_SHORT).show();
         double water = Double.parseDouble(waterLog.getText().toString());
 
 // search through data to see if one exists
@@ -38,16 +38,14 @@ public class WaterLogActivity extends AppCompatActivity {
         if(DailyInfo.allData.contains(new DailyInfo())){
             int ind = DailyInfo.allData.indexOf(new DailyInfo()); //should only check date?!?!?!?!?!??!!
             DailyInfo.allData.get(ind).setJournaled(true);
-            Log.d(TAG, "set journal to true");
+            Log.d(TAG, "set ounces logged to true");
         } else {
             DailyInfo.allData.add(new DailyInfo());
-            DailyInfo.allData.get(DailyInfo.allData.size()-1).setJournaled(true);
+            DailyInfo.allData.get(DailyInfo.allData.size()-1).setWater(water);
         }
 
-        journal.setText("");
+        waterLog.setText("");
     }
 
-
-}
 
 }
