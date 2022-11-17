@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="28dp"
-        android:fontFamily="@font/margarine"
+        android:fontFamily="@font/fredoka_one"
         android:text="Journal"
         android:textColor="@color/cream"
         android:textSize="34sp"
@@ -37,7 +37,7 @@
         android:id="@+id/journalEntry"
         android:layout_width="304dp"
         android:layout_height="274dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="164dp"
         android:autoText="false"
         android:background="@drawable/cream_rounded_edit_text"
         android:ems="10"
@@ -59,12 +59,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/margarine"
         android:onClick="addJournalButtonClicked"
         android:text="Save Entry"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/journalEntry" />
+        app:layout_constraintTop_toBottomOf="@+id/journal_prompt" />
 </androidx.constraintlayout.widget.ConstraintLayout>

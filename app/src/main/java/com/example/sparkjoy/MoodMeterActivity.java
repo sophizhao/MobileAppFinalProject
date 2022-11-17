@@ -10,13 +10,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.util.ArrayList;
 
 public class MoodMeterActivity extends AppCompatActivity {
     ImageButton red, yellow, green, blue;
-    public static ArrayList<Mood> myMoods = new ArrayList<>();
     final String TAG = "Sparky";
 
 
@@ -44,20 +44,30 @@ public class MoodMeterActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void moodSelected(View view) throws ParseException {
         int intMood = Integer.parseInt(view.getTag().toString());
-        boolean alreadyAdded = false;
-        for(int i = 0; i < myMoods.size(); i++){
-            if (myMoods.get(i).getDateCreated().isEqual(java.time.LocalDate.now())){ //if it is today
-                myMoods.get(i).setMood(intMood);
-                alreadyAdded = true;
-                System.out.println(myMoods.get(i));
-            }
+        Toast.makeText(getApplicationContext(), "Mood selected!", Toast.LENGTH_SHORT).show();
+
+        if(DailyInfo.allData.contains(new DailyInfo())){
+            int ind = DailyInfo.allData.indexOf(new DailyInfo()); //should only check date?!?!?!?!?!??!!
+            DailyInfo.allData.get(ind).setMood(intMood);
+            Log.d(TAG, "set mood");
+        } else {
+            DailyInfo.allData.add(new DailyInfo());
+            DailyInfo.allData.get(DailyInfo.allData.size()-1).setMood(intMood);
         }
-        if (!alreadyAdded){
-            Mood newMood = new Mood(intMood);
-            myMoods.add(newMood);
-            Log.d(TAG, "Mood set to " + newMood);
-            alreadyAdded = true;
-        }
+//        boolean alreadyAdded = false;
+//        for(int i = 0; i < myMoods.size(); i++){
+//            if (myMoods.get(i).getDateCreated().isEqual(java.time.LocalDate.now())){ //if it is today
+//                myMoods.get(i).setMood(intMood);
+//                alreadyAdded = true;
+//                System.out.println(myMoods.get(i));
+//            }
+//        }
+//        if (!alreadyAdded){
+//            Mood newMood = new Mood(intMood);
+//            myMoods.add(newMood);
+//            Log.d(TAG, "Mood set to " + newMood);
+//            alreadyAdded = true;
+//        }
 
     }
     @RequiresApi(api = Build.VERSION_CODES.O)

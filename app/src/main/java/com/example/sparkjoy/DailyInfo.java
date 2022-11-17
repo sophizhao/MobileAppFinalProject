@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class DailyInfo {
-    private Mood mood;
+    private int mood;
     private boolean journaled;
     private double water;
     private double sleep;
@@ -22,7 +22,7 @@ public class DailyInfo {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public DailyInfo() {
-        this.mood = null;
+        this.mood = 0;
         this.journaled = false;
         this.water = 0.0;
         this.sleep = 0.0;
@@ -32,7 +32,7 @@ public class DailyInfo {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public DailyInfo(LocalDate date) {
-        this.mood = null;
+        this.mood = 0;
         this.journaled = false;
         this.water = 0.0;
         this.sleep = 0.0;
@@ -75,11 +75,11 @@ public class DailyInfo {
         return DayOfWeek;
     }
 
-    public Mood getMood() {
+    public int getMood() {
         return mood;
     }
 
-    public void setMood(Mood mood) {
+    public void setMood(int mood) {
         this.mood = mood;
     }
 

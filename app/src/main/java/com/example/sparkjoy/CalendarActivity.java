@@ -80,7 +80,7 @@ public class CalendarActivity extends AppCompatActivity {
         if(checkIfJournaled()) {
             journaledDisplay.setText("You journaled today!");
         } else {
-            journaledDisplay.setText("Someone was feeling lazy...");
+            journaledDisplay.setText("Seems like you were too lazy to journal...");
         }
 
         Log.d(TAG, "Day is loaded");
@@ -91,15 +91,24 @@ public class CalendarActivity extends AppCompatActivity {
         //find selected date in milliseconds and convert to LocalDate
         LocalDate date = Instant.ofEpochMilli(mms).atZone(ZoneId.systemDefault()).toLocalDate();
 
-        for (Mood currentMood : MoodMeterActivity.myMoods) {
-            Log.d(TAG, date.toString() + " and " + currentMood.getDateCreated());
-            if (currentMood.getDateCreated().equals(date)) {
-                // Found matching mood
-                Log.d(TAG, "Found a mood: " + date.toString() + " and " + currentMood.getDateCreated() + ". The mood is "+ currentMood.getMood());
-                return currentMood.getMood();
+        for(int i = 0; i < DailyInfo.allData.size(); i++){
+            if(DailyInfo.allData.get(i).equals(new DailyInfo(date))){
+                Log.d(TAG, "yes DailyInfo exists for date (journal): " + DailyInfo.allData.indexOf(new DailyInfo(date)));
+
+                return DailyInfo.allData.get(i).getMood();
             }
         }
         return 0;
+
+//        for (Mood currentMood : MoodMeterActivity.myMoods) {
+//            Log.d(TAG, date.toString() + " and " + currentMood.getDateCreated());
+//            if (currentMood.getDateCreated().equals(date)) {
+//                // Found matching mood
+//                Log.d(TAG, "Found a mood: " + date.toString() + " and " + currentMood.getDateCreated() + ". The mood is "+ currentMood.getMood());
+//                return currentMood.getMood();
+//            }
+//        }
+//        return 0;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MoodMeterActivity">
+    tools:context=".MoodMeterActivity"
+    android:background="@drawable/pixelsky">
 
     <ImageButton
         android:id="@+id/blueButton"
         android:layout_width="135dp"
         android:layout_height="225dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="28dp"
         android:onClick="moodSelected"
@@ -26,6 +28,7 @@
         android:layout_marginStart="88dp"
         android:layout_marginBottom="4dp"
         android:text="Low"
+        android:textColor="@color/cream"
         app:layout_constraintBottom_toTopOf="@+id/redButton"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -37,6 +40,7 @@
         android:layout_marginBottom="40dp"
         android:rotation="-90"
         android:text="Low"
+        android:textColor="@color/cream"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/greenButton" />
 
@@ -44,6 +48,7 @@
         android:id="@+id/yellowButton"
         android:layout_width="135dp"
         android:layout_height="227dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:layout_marginTop="164dp"
         android:layout_marginEnd="20dp"
         android:onClick="moodSelected"
@@ -56,6 +61,7 @@
         android:id="@+id/greenButton"
         android:layout_width="135dp"
         android:layout_height="225dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:layout_marginStart="88dp"
         android:layout_marginBottom="28dp"
         android:onClick="moodSelected"
@@ -71,6 +77,7 @@
         android:layout_marginTop="16dp"
         android:rotation="-90"
         android:text="High"
+        android:textColor="@color/cream"
         app:layout_constraintEnd_toStartOf="@+id/redButton"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -81,6 +88,7 @@
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="4dp"
         android:text="High"
+        android:textColor="@color/cream"
         app:layout_constraintBottom_toTopOf="@+id/yellowButton"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -90,6 +98,7 @@
         android:layout_height="23dp"
         android:rotation="-90"
         android:text="Energy Level"
+        android:textColor="@color/cream"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/redButton"
@@ -100,6 +109,7 @@
         android:id="@+id/redButton"
         android:layout_width="135dp"
         android:layout_height="226dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:layout_marginStart="88dp"
         android:layout_marginTop="164dp"
         android:onClick="moodSelected"
@@ -114,6 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="Happiness"
+        android:textColor="@color/cream"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.618"
@@ -124,8 +135,10 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/fredoka_one"
         android:text="Mood Meter"
+        android:textColor="@color/cream"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
