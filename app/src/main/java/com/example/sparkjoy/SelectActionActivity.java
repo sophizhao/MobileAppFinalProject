@@ -47,7 +47,7 @@ public class SelectActionActivity extends AppCompatActivity {
     }
 
     public void switchPotion(View view) {
-        Log.i(TAG, "user is switching to mood meter");
+        Log.i(TAG, "user is switching to potion");
         Intent intent = new Intent(SelectActionActivity.this, PotionActivity.class);
         startActivity(intent);
     }

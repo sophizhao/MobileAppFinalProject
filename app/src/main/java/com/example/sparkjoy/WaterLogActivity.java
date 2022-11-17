@@ -44,10 +44,8 @@ public class WaterLogActivity extends AppCompatActivity {
             DailyInfo.allData.get(DailyInfo.allData.size()-1).setJournaled(true);
         }
 
-        journal.setText("");
+        waterLog.setText("");
     }
 
-
-}
 
 }
