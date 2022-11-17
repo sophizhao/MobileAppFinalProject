@@ -22,12 +22,12 @@ public class WaterLogActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_journal);
+        setContentView(R.layout.activity_water_log);
         waterLog = findViewById(R.id.editTextWaterLog);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void addJournalButtonClicked(View view){
+    public void addWaterButtonClicked(View view){
         Toast.makeText(getApplicationContext(), "Ounces logged!", Toast.LENGTH_SHORT).show();
         double water = Double.parseDouble(waterLog.getText().toString());
 
