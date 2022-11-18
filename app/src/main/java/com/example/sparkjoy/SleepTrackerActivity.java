@@ -33,11 +33,11 @@ public class SleepTrackerActivity extends AppCompatActivity {
 
         if(DailyInfo.allData.contains(new DailyInfo())){
             int ind = DailyInfo.allData.indexOf(new DailyInfo()); //should only check date?!?!?!?!?!??!!
-            DailyInfo.allData.get(ind).setJournaled(true);
-            Log.d(TAG, "set hours logged to true");
+            DailyInfo.allData.get(ind).setSleep(sleep);
+            Log.d(TAG, "set hours logged to " + sleep);
         } else {
             DailyInfo.allData.add(new DailyInfo());
-            DailyInfo.allData.get(DailyInfo.allData.size()-1).setWater(sleep);
+            DailyInfo.allData.get(DailyInfo.allData.size()-1).setSleep(sleep);
         }
 
         sleepLog.setText("");
