@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SleepTrackerActivity"
+    tools:context=".WaterLogActivity"
     android:background="@drawable/pixelnight">
 
     <TextView
         android:id="@+id/waterLogTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/fredoka_one"
         android:text="Water Log"
         android:textColor="@color/space_cadet"
@@ -24,7 +25,7 @@
         android:layout_below="@id/waterLogTV"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/space_rounded_edit_text"
         android:ems="10"
@@ -41,10 +42,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextWaterLog"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/space_cadet"
         android:fontFamily="@font/margarine"
         android:text="Log Water"
-        android:backgroundTint="@color/space_cadet"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:onClick="addWaterButtonClicked"/>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logWaterButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:background="@drawable/space_rounded_edit_text"
+        android:fontFamily="@font/margarine"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:padding="10dp"/>
 
 </RelativeLayout>

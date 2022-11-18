@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MoodMeterActivity"
-    android:background="@drawable/pixelsky">
+    android:background="@drawable/pixel_pastel">
 
     <ImageButton
         android:id="@+id/blueButton"
