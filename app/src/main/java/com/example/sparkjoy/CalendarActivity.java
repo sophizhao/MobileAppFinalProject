@@ -22,7 +22,7 @@ import java.time.ZoneId;
 import java.util.Calendar;
 
 public class CalendarActivity extends AppCompatActivity {
-    TextView moodDisplay, dateDisplay, journaledDisplay;
+    TextView moodDisplay, dateDisplay, journaledDisplay, waterDisplay, sleepDisplay;
     long mms;
     final String TAG = "Sparky";
 
@@ -36,6 +36,8 @@ public class CalendarActivity extends AppCompatActivity {
         moodDisplay = findViewById(R.id.moodTV);
         dateDisplay = findViewById(R.id.dateTV);
         journaledDisplay = findViewById(R.id.journaledTV);
+        waterDisplay = findViewById(R.id.waterTV);
+        sleepDisplay = findViewById(R.id.sleepTV);
         calendar = (CalendarView) findViewById(R.id.calendarView);
 
 
@@ -83,6 +85,20 @@ public class CalendarActivity extends AppCompatActivity {
             journaledDisplay.setText("Seems like you were too lazy to journal...");
         }
 
+        double[] waterAndSleepData = findWaterandSleep();
+        if(waterAndSleepData[0] >= 120){
+            waterDisplay.setText("You drank " + waterAndSleepData[0] + " oz of water, you sponge.");
+        } else if(waterAndSleepData[0] >= 80){
+            waterDisplay.setText("You drank " + waterAndSleepData[0] + " oz of water. So close... yet so far.");
+        } else if(waterAndSleepData[0] >= 40){
+            waterDisplay.setText("You drank " + waterAndSleepData[0] + " oz of water. Your kidneys must be happy with you.");
+        } else if(waterAndSleepData[0] > 0){
+            waterDisplay.setText("You drank " + waterAndSleepData[0] + " oz of water. Are you okay?");
+        }
+//        else {
+//            waterDisplay.setText("You drank "
+//        }
+
         Log.d(TAG, "Day is loaded");
     }
 
@@ -126,6 +142,24 @@ public class CalendarActivity extends AppCompatActivity {
 //        }
         return false;
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public double[] findWaterandSleep(){
+        LocalDate date = Instant.ofEpochMilli(mms).atZone(ZoneId.systemDefault()).toLocalDate();
+
+//        if(DailyInfo.allData.contains(new DailyInfo())){
+        for(int i = 0; i < DailyInfo.allData.size(); i++){
+            if(DailyInfo.allData.get(i).equals(new DailyInfo(date))){
+                Log.d(TAG, "yes DailyInfo exists for date (water): " + DailyInfo.allData.indexOf(new DailyInfo(date)));
+                double[] data = {DailyInfo.allData.get(i).getWater(),DailyInfo.allData.get(i).getSleep()};
+                return data;
+            }
+        }
+//        }
+        double[] noData ={-1.0,-1.0};
+        return noData;
+    }
+
 
     public void displayDate(int year, int month, int day){
         String monthString = new DateFormatSymbols().getMonths()[month-1];
