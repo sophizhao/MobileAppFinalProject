@@ -50,7 +50,7 @@
         android:onClick="addWaterButtonClicked"/>
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/waterLogActTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/logWaterButton"
@@ -59,8 +59,8 @@
         android:background="@drawable/space_rounded_edit_text"
         android:fontFamily="@font/margarine"
         android:gravity="center"
+        android:padding="10dp"
         android:text="TextView"
-        android:textColor="#FFFFFF"
-        android:padding="10dp"/>
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>
