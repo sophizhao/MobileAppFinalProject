@@ -95,9 +95,9 @@ public class CalendarActivity extends AppCompatActivity {
         } else if(waterAndSleepData[0] > 0){
             waterDisplay.setText("You drank " + waterAndSleepData[0] + " oz of water. Are you okay?");
         }
-//        else {
-//            waterDisplay.setText("You drank "
-//        }
+        else {
+            waterDisplay.setText("You didn't log anything...");
+        }
 
         Log.d(TAG, "Day is loaded");
     }

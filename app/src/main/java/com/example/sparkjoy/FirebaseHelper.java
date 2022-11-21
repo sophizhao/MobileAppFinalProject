@@ -54,6 +54,7 @@ public class FirebaseHelper {
     public FirebaseHelper() {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        dailyInfos = new ArrayList<>();
     }
 
 
@@ -114,8 +115,8 @@ public class FirebaseHelper {
         // this method is overloaded and incorporates the interface to handle the asynch calls
         addData(d, new FirestoreCallback() {
             @Override
-            public void onCallback(ArrayList<DailyInfo> myDailyInfo) {
-                Log.i(TAG, "Inside addData, onCallback :" + myDailyInfo.toString());
+            public void onCallback(ArrayList<DailyInfo> myList) {
+                Log.i(TAG, "Inside addData, onCallback :" + dailyInfos.toString());
             }
         });
     }
@@ -137,6 +138,37 @@ public class FirebaseHelper {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.i(TAG, "Error adding document", e);
+                    }
+                });
+    }
+
+    public void editData(DailyInfo d) {
+        // edit Memory m to the database
+        // this method is overloaded and incorporates the interface to handle the asynch calls
+        editData(d, new FirestoreCallback() {
+            @Override
+            public void onCallback(ArrayList<DailyInfo> myList) {
+                Log.i(TAG, "Inside editData, onCallback " + myList.toString());
+            }
+        });
+    }
+
+    private void editData(DailyInfo d, FirestoreCallback firestoreCallback) {
+        String docId = d.getDocID();
+        db.collection("users").document(uid).collection("myDailyInfo")
+                .document(docId)
+                .set(d)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, "Success updating document");
+                        readData(firestoreCallback);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i(TAG, "Error updating document", e);
                     }
                 });
     }
