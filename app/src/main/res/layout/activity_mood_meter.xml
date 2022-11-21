@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,19 +7,20 @@
     tools:context=".MoodMeterActivity"
     android:background="@drawable/pixel_pastel">
 
+
     <ImageButton
         android:id="@+id/blueButton"
         android:layout_width="135dp"
         android:layout_height="225dp"
+        android:layout_below="@id/redButton"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="28dp"
         android:onClick="moodSelected"
         android:tag="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/blue" />
-
+        app:srcCompat="@drawable/blueaesthetic" />
 
     <TextView
         android:id="@+id/textView3"
@@ -36,8 +37,8 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="64dp"
         android:rotation="-90"
         android:text="Low"
         android:textColor="@color/cream"
@@ -48,27 +49,31 @@
         android:id="@+id/yellowButton"
         android:layout_width="135dp"
         android:layout_height="227dp"
+        android:layout_marginTop="100"
+        android:layout_marginLeft="60dp"
+        android:layout_toRightOf="@id/redButton"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:layout_marginTop="164dp"
-        android:layout_marginEnd="20dp"
         android:onClick="moodSelected"
         android:tag="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/yellow" />
+        app:srcCompat="@drawable/yellowaesthetic" />
 
     <ImageButton
         android:id="@+id/greenButton"
         android:layout_width="135dp"
         android:layout_height="225dp"
+        android:layout_below="@id/yellowButton"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="60dp"
+        android:layout_toRightOf="@id/blueButton"
+        android:layout_marginBottom="44dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:layout_marginStart="88dp"
-        android:layout_marginBottom="28dp"
         android:onClick="moodSelected"
         android:tag="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/green" />
+        app:srcCompat="@drawable/greenaesthetic" />
 
     <TextView
         android:id="@+id/textView6"
@@ -109,14 +114,14 @@
         android:id="@+id/redButton"
         android:layout_width="135dp"
         android:layout_height="226dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="100dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="164dp"
         android:onClick="moodSelected"
         android:tag="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/red" />
+        app:srcCompat="@drawable/redaesthetic" />
 
     <TextView
         android:id="@+id/textView2"
@@ -155,4 +160,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/hat_rat" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
