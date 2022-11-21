@@ -27,14 +27,32 @@ public class PotionActivity extends AppCompatActivity {
                 new DataPoint(7, 3)
         });
 
-        series.setColor(Color.rgb(215, 130, 255));
+        series.setColor(Color.rgb(255, 183, 255));
         series.setThickness(12);
         series.setDrawBackground(true);
-        series.setBackgroundColor(Color.argb(80, 215, 130, 255));
+        series.setBackgroundColor(Color.argb(80, 255, 183, 255));
         series.setDrawDataPoints(true);
         series.setDataPointsRadius(15);
 
+        LineGraphSeries<DataPoint> series2 = new LineGraphSeries<>(new DataPoint[] {
+                new DataPoint(1, 2),
+                new DataPoint(2, 4),
+                new DataPoint(3, 6),
+                new DataPoint(4, 3),
+                new DataPoint(5, 5),
+                new DataPoint(6, 2),
+                new DataPoint(7, 3)
+        });
+
+        series2.setColor(Color.rgb(200, 121, 255));
+        series2.setThickness(12);
+        series2.setDrawBackground(true);
+        series2.setBackgroundColor(Color.argb(80, 200, 121, 255));
+        series2.setDrawDataPoints(true);
+        series2.setDataPointsRadius(15);
+
         graph.addSeries(series);
+        graph.addSeries(series2);
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(1);
         graph.getViewport().setMaxX(7);
