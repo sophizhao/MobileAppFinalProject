@@ -114,20 +114,20 @@ public class FirebaseHelper {
         // this method is overloaded and incorporates the interface to handle the asynch calls
         addData(d, new FirestoreCallback() {
             @Override
-            public void onCallback(ArrayList<DailyInfo> myList) {
-                //Log.i(TAG, "Inside addData, onCallback :" + moods.toString());
+            public void onCallback(ArrayList<DailyInfo> myDailyInfo) {
+                Log.i(TAG, "Inside addData, onCallback :" + myDailyInfo.toString());
             }
         });
     }
 
     private void addData(DailyInfo d, FirestoreCallback firestoreCallback) {
-        db.collection("users").document(uid).collection("myMoods")
+        db.collection("users").document(uid).collection("myDailyInfo")
                 .add(d)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         // This will set the docID key for the Memory that was just added.
-                        db.collection("users").document(uid).collection("myMoods").
+                        db.collection("users").document(uid).collection("myDailyInfo").
                                 document(documentReference.getId()).update("docID", documentReference.getId());
                         Log.i(TAG, "just added ");
                         readData(firestoreCallback);
@@ -141,13 +141,9 @@ public class FirebaseHelper {
                 });
     }
 
-//    public ArrayList<Mood> getMoods() {
-//        //return moods;
-//    }
-
     private void readData(FirestoreCallback firestoreCallback) {
         dailyInfos.clear();        // empties the AL so that it can get a fresh copy of data
-        db.collection("users").document(uid).collection("myMemoryList")
+        db.collection("users").document(uid).collection("myDailyInfo")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

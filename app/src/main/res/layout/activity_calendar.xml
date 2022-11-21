@@ -56,18 +56,23 @@
         android:id="@+id/waterTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Water"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="170dp"
-        tools:layout_editor_absoluteY="168dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/journaledTV" />
 
     <TextView
         android:id="@+id/sleepTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Sleep"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="207dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waterTV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
