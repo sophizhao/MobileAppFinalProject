@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.ParseException;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 public class WaterLogActivity extends AppCompatActivity {
 
     EditText waterLog;
+    TextView waterLogTV;
     final String TAG = "Sparky";
 
     @Override
@@ -24,6 +26,7 @@ public class WaterLogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water_log);
         waterLog = findViewById(R.id.editTextWaterLog);
+        waterLogTV = findViewById(R.id.waterLogActTV);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -45,6 +48,7 @@ public class WaterLogActivity extends AppCompatActivity {
         }
 
         waterLog.setText("");
+        waterLogTV.setText(""+water);
     }
 
 

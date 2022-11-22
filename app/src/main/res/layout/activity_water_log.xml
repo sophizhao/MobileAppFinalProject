@@ -60,7 +60,7 @@
         android:fontFamily="@font/margarine"
         android:gravity="center"
         android:padding="10dp"
-        android:text="TextView"
+        android:text="Water Consumed"
         android:textColor="#FFFFFF" />
 
 </RelativeLayout>
