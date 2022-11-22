@@ -30,7 +30,7 @@
         android:background="@drawable/space_rounded_edit_text"
         android:ems="10"
         android:fontFamily="@font/margarine"
-        android:hint="Enter the number of ounces drank!"
+        android:hint="Enter oz. drank..."
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textColor="#FFFFFF"
