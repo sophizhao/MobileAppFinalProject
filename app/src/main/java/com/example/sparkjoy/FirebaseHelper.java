@@ -49,7 +49,7 @@ public class FirebaseHelper {
     private static String uid = null;      // var will be updated for currently signed in user
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-    private ArrayList<DailyInfo> dailyInfos;
+    private ArrayList<DailyInfo> dailyInfos = new ArrayList<>();
 
     public FirebaseHelper() {
         mAuth = FirebaseAuth.getInstance();
@@ -142,36 +142,40 @@ public class FirebaseHelper {
                 });
     }
 
-//    public void editData(DailyInfo d) {
-//        // edit Memory m to the database
-//        // this method is overloaded and incorporates the interface to handle the asynch calls
-//        editData(d, new FirestoreCallback() {
-//            @Override
-//            public void onCallback(ArrayList<DailyInfo> myList) {
-//                Log.i(TAG, "Inside editData, onCallback " + myList.toString());
-//            }
-//        });
-//    }
+    public ArrayList<DailyInfo> getDailyInfos() {
+        return dailyInfos;
+    }
 
-//    private void editData(DailyInfo d, FirestoreCallback firestoreCallback) {
-//        String docId = d.getDocID();
-//        db.collection("users").document(uid).collection("myDailyInfo")
-//                .document(docId)
-//                .set(d)
-//                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void unused) {
-//                        Log.i(TAG, "Success updating document");
-//                        readData(firestoreCallback);
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.i(TAG, "Error updating document", e);
-//                    }
-//                });
-//    }
+    public void editData(DailyInfo d) {
+        // edit Memory m to the database
+        // this method is overloaded and incorporates the interface to handle the asynch calls
+        editData(d, new FirestoreCallback() {
+            @Override
+            public void onCallback(ArrayList<DailyInfo> myList) {
+                Log.i(TAG, "Inside editData, onCallback " + myList.toString());
+            }
+        });
+    }
+
+    private void editData(DailyInfo d, FirestoreCallback firestoreCallback) {
+        String docId = d.getDocID();
+        db.collection("users").document(uid).collection("myDailyInfo")
+                .document(docId)
+                .set(d)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, "Success updating document");
+                        readData(firestoreCallback);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i(TAG, "Error updating document", e);
+                    }
+                });
+    }
 
     private void readData(FirestoreCallback firestoreCallback) {
         dailyInfos.clear();        // empties the AL so that it can get a fresh copy of data

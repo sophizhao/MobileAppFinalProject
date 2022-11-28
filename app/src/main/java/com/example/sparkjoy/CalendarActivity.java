@@ -104,12 +104,10 @@ public class CalendarActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public int findMoodSelected(){
-        //find selected date in milliseconds and convert to LocalDate
-        LocalDate date = Instant.ofEpochMilli(mms).atZone(ZoneId.systemDefault()).toLocalDate();
 
         for(int i = 0; i < DailyInfo.allData.size(); i++){
-            if(DailyInfo.allData.get(i).equals(new DailyInfo(date))){
-                Log.d(TAG, "yes DailyInfo exists for date (journal): " + DailyInfo.allData.indexOf(new DailyInfo(date)));
+            if(DailyInfo.allData.get(i).equals(new DailyInfo(mms))){
+                Log.d(TAG, "yes DailyInfo exists for date (journal): " + DailyInfo.allData.indexOf(new DailyInfo(mms)));
 
                 return DailyInfo.allData.get(i).getMood();
             }
@@ -133,8 +131,8 @@ public class CalendarActivity extends AppCompatActivity {
 
 //        if(DailyInfo.allData.contains(new DailyInfo())){
             for(int i = 0; i < DailyInfo.allData.size(); i++){
-                if(DailyInfo.allData.get(i).equals(new DailyInfo(date))){
-                    Log.d(TAG, "yes DailyInfo exists for date (journal): " + DailyInfo.allData.indexOf(new DailyInfo(date)));
+                if(DailyInfo.allData.get(i).equals(new DailyInfo(mms))){
+                    Log.d(TAG, "yes DailyInfo exists for date (journal): " + DailyInfo.allData.indexOf(new DailyInfo(mms)));
 
                     return DailyInfo.allData.get(i).isJournaled();
                 }
@@ -149,8 +147,8 @@ public class CalendarActivity extends AppCompatActivity {
 
 //        if(DailyInfo.allData.contains(new DailyInfo())){
         for(int i = 0; i < DailyInfo.allData.size(); i++){
-            if(DailyInfo.allData.get(i).equals(new DailyInfo(date))){
-                Log.d(TAG, "yes DailyInfo exists for date (water): " + DailyInfo.allData.indexOf(new DailyInfo(date)));
+            if(DailyInfo.allData.get(i).equals(new DailyInfo(mms))){
+                Log.d(TAG, "yes DailyInfo exists for date (water): " + DailyInfo.allData.indexOf(new DailyInfo(mms)));
                 double[] data = {DailyInfo.allData.get(i).getWater(),DailyInfo.allData.get(i).getSleep()};
                 return data;
             }
