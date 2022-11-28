@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuthEmailException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity  {
 
     // xml elements
@@ -59,8 +61,15 @@ public class MainActivity extends AppCompatActivity  {
         passwordET = findViewById(R.id.passwordET);
 
         boolean alreadyAdded = false;
+        Calendar cal = Calendar.getInstance();
+        int year  = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int date  = cal.get(Calendar.DATE);
+        cal.clear();
+        cal.set(year, month, date);
+        long todayMillis2 = cal.getTimeInMillis();
         for(int i = 0; i < DailyInfo.allData.size(); i++){
-            if(DailyInfo.allData.get(i).getDate() == java.time.LocalDate.now()){
+            if(DailyInfo.allData.get(i).getDate() == todayMillis2){
                 alreadyAdded = true;
             }
             if(!alreadyAdded){

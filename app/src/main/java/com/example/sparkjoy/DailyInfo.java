@@ -9,16 +9,18 @@ import java.text.ParseException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class DailyInfo {
     private int mood;
     private boolean journaled;
     private double water;
     private double sleep;
-    private LocalDate date;
+    private long date;
     private DayOfWeek DayOfWeek;
     static ArrayList<DailyInfo> allData = new ArrayList<>();
     final String TAG = "Sparky";
+    private String docID;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public DailyInfo() {
@@ -26,17 +28,26 @@ public class DailyInfo {
         this.journaled = false;
         this.water = 0.0;
         this.sleep = 0.0;
-        this.date = java.time.LocalDate.now();
+        Calendar cal = Calendar.getInstance();
+        int year  = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int date  = cal.get(Calendar.DATE);
+        cal.clear();
+        cal.set(year, month, date);
+        long todayMillis2 = cal.getTimeInMillis();
+        this.date = todayMillis2;
+        this.docID = "No docID yet";
         allData.add(this);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public DailyInfo(LocalDate date) {
+    public DailyInfo(long date) {
         this.mood = 0;
         this.journaled = false;
         this.water = 0.0;
         this.sleep = 0.0;
         this.date = date;
+        this.docID = "No docID yet";
     }
 
 //    public ArrayList<DailyInfo> weekly(LocalDate d){
@@ -55,7 +66,7 @@ public class DailyInfo {
         if(o instanceof DailyInfo){
             DailyInfo d = (DailyInfo) o;
             Log.d(TAG, "found a DailyInfo object by date");
-            return this.date.equals(d.getDate());
+            return this.date ==d.getDate();
         } else
             return false;
     }
@@ -107,11 +118,19 @@ public class DailyInfo {
         this.sleep = sleep;
     }
 
-    public LocalDate getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(long date) {
         this.date = date;
+    }
+
+    public String getDocID() {
+        return docID;
+    }
+
+    public void setDocID(String docID) {
+        this.docID = docID;
     }
 }
