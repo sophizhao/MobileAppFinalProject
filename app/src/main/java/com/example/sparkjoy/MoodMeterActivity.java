@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class MoodMeterActivity extends AppCompatActivity {
     ImageButton red, yellow, green, blue;
     final String TAG = "Sparky";
+    ArrayList<DailyInfo> myList = MainActivity.firebaseHelper.getDailyInfos();
 
 
     @Override
@@ -45,15 +46,17 @@ public class MoodMeterActivity extends AppCompatActivity {
     public void moodSelected(View view) throws ParseException {
         int intMood = Integer.parseInt(view.getTag().toString());
         Toast.makeText(getApplicationContext(), "Mood selected!", Toast.LENGTH_SHORT).show();
-
-        if(DailyInfo.allData.contains(new DailyInfo())){
-            int ind = DailyInfo.allData.indexOf(new DailyInfo()); //should only check date?!?!?!?!?!??!!
-            DailyInfo.allData.get(ind).setMood(intMood);
-            Log.d(TAG, "set mood");
+        if(myList.contains(new DailyInfo())){
+            int ind = myList.indexOf(new DailyInfo()); //should only check date?!?!?!?!?!??!!
+            myList.get(ind).setMood(intMood);
+            MainActivity.firebaseHelper.editData(myList.get(ind));
+            Log.d(TAG, "set mood logged to " + intMood);
         } else {
-            DailyInfo.allData.add(new DailyInfo());
-            DailyInfo.allData.get(DailyInfo.allData.size()-1).setMood(intMood);
+            DailyInfo newDI = new DailyInfo();
+            newDI.setMood(intMood);
+            MainActivity.firebaseHelper.addData(newDI);
         }
+
 //        boolean alreadyAdded = false;
 //        for(int i = 0; i < myMoods.size(); i++){
 //            if (myMoods.get(i).getDateCreated().isEqual(java.time.LocalDate.now())){ //if it is today

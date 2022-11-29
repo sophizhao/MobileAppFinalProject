@@ -19,12 +19,15 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class CalendarActivity extends AppCompatActivity {
     TextView moodDisplay, dateDisplay, journaledDisplay, waterDisplay, sleepDisplay;
     long mms;
     final String TAG = "Sparky";
+    ArrayList<DailyInfo> myList = MainActivity.firebaseHelper.getDailyInfos();
+
 
     private CalendarView calendar;
 
@@ -40,6 +43,7 @@ public class CalendarActivity extends AppCompatActivity {
         sleepDisplay = findViewById(R.id.sleepTV);
         calendar = (CalendarView) findViewById(R.id.calendarView);
 
+        Log.d(TAG, "" + myList);
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -49,7 +53,12 @@ public class CalendarActivity extends AppCompatActivity {
                 displayDate(year, month, day);
                 Calendar c = Calendar.getInstance();
                 month--;
+                c.clear();
                 c.set(year, month, day);
+                c.set(Calendar.HOUR_OF_DAY, 0);
+                c.set(Calendar.MINUTE, 0);
+                c.set(Calendar.SECOND, 0);
+                c.set(Calendar.MILLISECOND, 0);
                 mms = c.getTimeInMillis(); //this is what you want to use later
                 Log.d(TAG, "" + mms);
                 loadDate();
@@ -105,11 +114,11 @@ public class CalendarActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public int findMoodSelected(){
 
-        for(int i = 0; i < DailyInfo.allData.size(); i++){
-            if(DailyInfo.allData.get(i).equals(new DailyInfo(mms))){
-                Log.d(TAG, "yes DailyInfo exists for date (journal): " + DailyInfo.allData.indexOf(new DailyInfo(mms)));
+        for(int i = 0; i < myList.size(); i++){
+            if(myList.get(i).equals(new DailyInfo(mms))){
+                Log.d(TAG, "yes DailyInfo exists for date (journal): " + myList.indexOf(new DailyInfo(mms)));
 
-                return DailyInfo.allData.get(i).getMood();
+                return myList.get(i).getMood();
             }
         }
         return 0;
@@ -130,11 +139,11 @@ public class CalendarActivity extends AppCompatActivity {
         LocalDate date = Instant.ofEpochMilli(mms).atZone(ZoneId.systemDefault()).toLocalDate();
 
 //        if(DailyInfo.allData.contains(new DailyInfo())){
-            for(int i = 0; i < DailyInfo.allData.size(); i++){
-                if(DailyInfo.allData.get(i).equals(new DailyInfo(mms))){
-                    Log.d(TAG, "yes DailyInfo exists for date (journal): " + DailyInfo.allData.indexOf(new DailyInfo(mms)));
+            for(int i = 0; i < myList.size(); i++){
+                if(myList.get(i).equals(new DailyInfo(mms))){
+                    Log.d(TAG, "yes DailyInfo exists for date (journal): " + myList.indexOf(new DailyInfo(mms)));
 
-                    return DailyInfo.allData.get(i).isJournaled();
+                    return myList.get(i).isJournaled();
                 }
             }
 //        }
@@ -146,10 +155,10 @@ public class CalendarActivity extends AppCompatActivity {
         LocalDate date = Instant.ofEpochMilli(mms).atZone(ZoneId.systemDefault()).toLocalDate();
 
 //        if(DailyInfo.allData.contains(new DailyInfo())){
-        for(int i = 0; i < DailyInfo.allData.size(); i++){
-            if(DailyInfo.allData.get(i).equals(new DailyInfo(mms))){
-                Log.d(TAG, "yes DailyInfo exists for date (water): " + DailyInfo.allData.indexOf(new DailyInfo(mms)));
-                double[] data = {DailyInfo.allData.get(i).getWater(),DailyInfo.allData.get(i).getSleep()};
+        for(int i = 0; i < myList.size(); i++){
+            if(myList.get(i).equals(new DailyInfo(mms))){
+                Log.d(TAG, "yes DailyInfo exists for date (water): " + myList.indexOf(new DailyInfo(mms)));
+                double[] data = {myList.get(i).getWater(),myList.get(i).getSleep()};
                 return data;
             }
         }
