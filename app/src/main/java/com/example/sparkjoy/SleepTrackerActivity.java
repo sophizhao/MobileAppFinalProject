@@ -10,10 +10,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class SleepTrackerActivity extends AppCompatActivity {
 
     EditText sleepLog;
     final String TAG = "Sparky";
+    ArrayList<DailyInfo> myList = MainActivity.firebaseHelper.getDailyInfos();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +35,16 @@ public class SleepTrackerActivity extends AppCompatActivity {
         //if data exists for today, set journal to true
         //if data doesn't, add new data
 
-        if(DailyInfo.allData.contains(new DailyInfo())){
-            int ind = DailyInfo.allData.indexOf(new DailyInfo()); //should only check date?!?!?!?!?!??!!
-            DailyInfo.allData.get(ind).setSleep(sleep);
-            Log.d(TAG, "set hours logged to " + sleep);
+        if(myList.contains(new DailyInfo())){
+            int ind = myList.indexOf(new DailyInfo()); //should only check date?!?!?!?!?!??!!
+            myList.get(ind).setSleep(sleep);
+            MainActivity.firebaseHelper.editData(myList.get(ind));
+            Log.d(TAG, "set ounces logged to " + sleep);
         } else {
-            DailyInfo.allData.add(new DailyInfo());
-            DailyInfo.allData.get(DailyInfo.allData.size()-1).setSleep(sleep);
+            DailyInfo newDI = new DailyInfo();
+            newDI.setSleep(sleep);
+            MainActivity.firebaseHelper.addData(newDI);
         }
-
         sleepLog.setText("");
     }
 
