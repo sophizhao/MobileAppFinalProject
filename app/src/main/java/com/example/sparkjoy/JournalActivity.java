@@ -11,11 +11,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class JournalActivity extends AppCompatActivity {
 
     EditText journal;
     final String TAG = "Sparky";
+    ArrayList<DailyInfo> myList = MainActivity.firebaseHelper.getDailyInfos();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +34,17 @@ public class JournalActivity extends AppCompatActivity {
 // search through data to see if one exists
         //if data exists for today, set journal to true
         //if data doesn't, add new data
-
-        if(DailyInfo.allData.contains(new DailyInfo())){
-            int ind = DailyInfo.allData.indexOf(new DailyInfo()); //should only check date?!?!?!?!?!??!!
-            DailyInfo.allData.get(ind).setJournaled(true);
-            Log.d(TAG, "set journal to true");
+        if(myList.contains(new DailyInfo())){
+            int ind = myList.indexOf(new DailyInfo()); //should only check date?!?!?!?!?!??!!
+            myList.get(ind).setJournaled(true);
+            MainActivity.firebaseHelper.editData(myList.get(ind));
+            Log.d(TAG, "set journal logged to " + true);
         } else {
-            DailyInfo.allData.add(new DailyInfo());
-            DailyInfo.allData.get(DailyInfo.allData.size()-1).setJournaled(true);
+            DailyInfo newDI = new DailyInfo();
+            newDI.setJournaled(true);
+            MainActivity.firebaseHelper.addData(newDI);
         }
+
 
         journal.setText("");
     }
