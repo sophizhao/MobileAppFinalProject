@@ -5,6 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
@@ -14,6 +19,12 @@ public class PotionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+//        FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+//        assert currentFirebaseUser != null;
+//        DocumentReference dataRef = db.collection("users").document(currentFirebaseUser.getUid());
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_potion);
         GraphView graph = (GraphView) findViewById(R.id.graph);
