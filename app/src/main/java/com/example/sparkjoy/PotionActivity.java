@@ -20,29 +20,29 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.text.DateFormatSymbols;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class PotionActivity extends AppCompatActivity {
     long mms;
-    private static final String TAG = "Sparky";
+    private static final String TAG = "Sparkplug";
     ArrayList<DailyInfo> myList = MainActivity.firebaseHelper.getDailyInfos();
+    double[] waterAndSleepData = findWaterandSleep();
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
-        assert currentFirebaseUser != null;
-        DocumentReference dataRef = db.collection("users").document(currentFirebaseUser.getUid());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_potion);
         GraphView graph = (GraphView) findViewById(R.id.graph);
+        //mms = c.getTimeInMillis();
 
         LineGraphSeries<DataPoint> sleepSeries = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(1, 1),
+                new DataPoint(1, waterAndSleepData[0]),
                 new DataPoint(2, 3),
                 new DataPoint(3, 2),
                 new DataPoint(4, 6),
@@ -58,74 +58,41 @@ public class PotionActivity extends AppCompatActivity {
         sleepSeries.setDrawDataPoints(true);
         sleepSeries.setDataPointsRadius(15);
 
-//        LineGraphSeries<DataPoint> waterSeries = new LineGraphSeries<>(new DataPoint[] {
-//                new DataPoint(1, myList.get((int) findWater())),
-//                new DataPoint(2, myList.get(findWater())),
-//                new DataPoint(3, myList.get(findWater())),
-//                new DataPoint(4, myList.get(findWater())),
-//                new DataPoint(5, myList.get(findWater())),
-//                new DataPoint(6, myList.get(findWater())),
-//                new DataPoint(7, myList.get(findWater()))
-//        });
+        LineGraphSeries<DataPoint> waterSeries = new LineGraphSeries<>(new DataPoint[] {
+                new DataPoint(1, waterAndSleepData[0]),
+                new DataPoint(2, waterAndSleepData[0]),
+                new DataPoint(3, waterAndSleepData[0]),
+                new DataPoint(4, waterAndSleepData[0]),
+                new DataPoint(5, waterAndSleepData[0]),
+                new DataPoint(6, waterAndSleepData[0]),
+                new DataPoint(7, waterAndSleepData[0])
+        });
 
-//        waterSeries.setColor(Color.rgb(200, 121, 255));
-//        waterSeries.setThickness(12);
-//        waterSeries.setDrawBackground(true);
-//        waterSeries.setBackgroundColor(Color.argb(80, 200, 121, 255));
-//        waterSeries.setDrawDataPoints(true);
-//        waterSeries.setDataPointsRadius(15);
-//
-//        graph.addSeries(sleepSeries);
-//        graph.addSeries(waterSeries);
-//        graph.getViewport().setXAxisBoundsManual(true);
-//        graph.getViewport().setMinX(1);
-//        graph.getViewport().setMaxX(7);
+        waterSeries.setColor(Color.rgb(200, 121, 255));
+        waterSeries.setThickness(12);
+        waterSeries.setDrawBackground(true);
+        waterSeries.setBackgroundColor(Color.argb(80, 200, 121, 255));
+        waterSeries.setDrawDataPoints(true);
+        waterSeries.setDataPointsRadius(15);
+
+        graph.addSeries(sleepSeries);
+        graph.addSeries(waterSeries);
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinX(1);
+        graph.getViewport().setMaxX(7);
     }
 
+    public double[] findWaterandSleep(){
+        LocalDate date = Instant.ofEpochMilli(mms).atZone(ZoneId.systemDefault()).toLocalDate();
 
-    public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day) {
-        month++;
-//                Toast.makeText(getApplicationContext(), month + "/" + day +"/" + year, Toast.LENGTH_LONG).show();
-        displayDate(year, month, day);
-        Calendar c = Calendar.getInstance();
-        month--;
-        c.clear();
-        c.set(year, month, day);
-        c.set(Calendar.HOUR_OF_DAY, 0);
-        c.set(Calendar.MINUTE, 0);
-        c.set(Calendar.SECOND, 0);
-        c.set(Calendar.MILLISECOND, 0);
-        mms = c.getTimeInMillis(); //this is what you want to use later
-        Log.d(TAG, "" + mms);
-    }
-
-    public void displayDate(int year, int month, int day){
-        String monthString = new DateFormatSymbols().getMonths()[month-1];
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public double findSleep() {
-
-        for (int i = 0; i < myList.size(); i++) {
-            if (myList.get(i).equals(new DailyInfo(mms))) {
-                Log.d(TAG, "yes DailyInfo exists for date (journal): " + myList.indexOf(new DailyInfo(mms)));
-
-                return myList.get(i).getSleep();
+        for(int i = 0; i < myList.size(); i++){
+            if(myList.get(i).equals(new DailyInfo(mms))){
+                Log.d(TAG, "yes DailyInfo exists for date (water): " + myList.indexOf(new DailyInfo(mms)));
+                double[] data = {myList.get(i).getWater(),myList.get(i).getSleep()};
+                Log.d(TAG, "datalist is" + data.toString());
+                return data;
             }
         }
-        return 0;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public double findWater() {
-
-        for (int i = 0; i < myList.size(); i++) {
-            if (myList.get(i).equals(new DailyInfo(mms))) {
-                Log.d(TAG, "yes DailyInfo exists for date (journal): " + myList.indexOf(new DailyInfo(mms)));
-
-                return myList.get(i).getWater();
-            }
-        }
-        return 0;
+        return new double[]{-1.0,-1.0};
     }
 }
