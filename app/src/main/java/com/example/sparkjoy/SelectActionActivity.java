@@ -6,6 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuthEmailException;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
 public class SelectActionActivity extends AppCompatActivity {
     public final String TAG = "Sparky";
@@ -14,6 +25,13 @@ public class SelectActionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_action);
+    }
+
+    public void logOutClicked(View view) {
+        MainActivity.firebaseHelper.logOutUser();
+        Log.i(TAG, "user logged out");
+        Intent intent = new Intent(SelectActionActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
     public void switchMoodMeter(View view) {

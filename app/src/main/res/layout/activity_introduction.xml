@@ -7,12 +7,13 @@
     tools:context=".IntroductionActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Oh…it’s you. Ugh."
         tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="93dp" />
+        tools:layout_editor_absoluteY="93dp"
+        />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -21,4 +22,50 @@
         app:srcCompat="@drawable/hat_rat"
         tools:layout_editor_absoluteX="153dp"
         tools:layout_editor_absoluteY="143dp" />
+
+    <Button
+        android:id="@+id/buttonNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="29dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I suppose I should introduce myself. My name is Sparkplug
+        and this is my app, Spark Joy. You seem sad today. Maybe start tracking your mood with the Mood Meter?"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Or, since the circles under your eyes are darker than usual, you might want to use the sleep tracker."
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="240dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You need more than an ounce of water per day–you know that, right? Perhaps the Water Log will put that into perspective..."
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="432dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="If you want to stay dehydrated and tired, I suggest you be productive too. Journal perhaps?"
+        tools:layout_editor_absoluteX="0dp"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteY="529dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
