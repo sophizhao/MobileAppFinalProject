@@ -110,6 +110,12 @@ public class MainActivity extends AppCompatActivity  {
         }
     }
 
+    public void switchIntroScreen(View view) {
+        Log.i(TAG, "user is switching to intro screen");
+        Intent intent = new Intent(MainActivity.this, IntroductionActivity.class);
+        startActivity(intent);
+    }
+
     /**
      * Method first checks if the input is valid.  If it meets the screening criteria from
      * getValues(), then the username (which is an email) and password are sent to the FirebaseHelper

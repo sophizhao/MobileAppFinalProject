@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IntroductionActivity">
+    android:orientation="vertical"
+    tools:context=".IntroductionActivity"
+    android:background="@drawable/pixel_pastel">
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_one"
         android:text="Oh…it’s you. Ugh."
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
         tools:layout_editor_absoluteX="153dp"
         tools:layout_editor_absoluteY="93dp"
-        />
+        android:background="@drawable/cream_rounded_edit_text"/>
 
     <ImageView
         android:id="@+id/imageView3"
@@ -21,51 +26,22 @@
         android:layout_height="386dp"
         app:srcCompat="@drawable/hat_rat"
         tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="143dp" />
+        tools:layout_editor_absoluteY="143dp"
+        />
 
     <Button
         android:id="@+id/buttonNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="29dp" />
+        android:onClick="cycleText"/>
 
-    <TextView
-        android:id="@+id/textView2"
+    <Button
+        android:id="@+id/buttonGoBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I suppose I should introduce myself. My name is Sparkplug
-        and this is my app, Spark Joy. You seem sad today. Maybe start tracking your mood with the Mood Meter?"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="143dp" />
+        android:text="Back to Login"
+        android:onClick="switchHome"/>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Or, since the circles under your eyes are darker than usual, you might want to use the sleep tracker."
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="240dp"
-        android:textAlignment="center"/>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="You need more than an ounce of water per day–you know that, right? Perhaps the Water Log will put that into perspective..."
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="432dp"
-        android:textAlignment="center"/>
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="If you want to stay dehydrated and tired, I suggest you be productive too. Journal perhaps?"
-        tools:layout_editor_absoluteX="0dp"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteY="529dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -82,13 +82,14 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_below="@id/buttonSleepTracker"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:backgroundTint="@color/lavender_blush"
+        android:backgroundTint="@color/languid_lavender"
         android:fontFamily="@font/fredoka_one"
         android:text="Get Started"
+        android:layout_gravity="center_horizontal"
         android:textSize="12sp"
         app:cornerRadius="30dp"
+        android:onClick="switchIntroScreen"
         />
 
 
