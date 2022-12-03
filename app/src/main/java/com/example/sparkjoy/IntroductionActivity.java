@@ -20,6 +20,8 @@ public class IntroductionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduction);
+
+
     }
 
     public void cycleText(View view){
@@ -28,12 +30,13 @@ public class IntroductionActivity extends AppCompatActivity {
         textViewList.add("Or, since the circles under your eyes are darker than usual, you might want to use the sleep tracker.");
         textViewList.add("You need more than an ounce of water per day–you know that, right? Perhaps the Water Log will put that into perspective...");
         textViewList.add("If you want to stay dehydrated and tired, I suggest you be productive too. Journal perhaps?");
+        textViewList.add("Whichever one you choose, click the 'Back To Login' button to start. Enjoy...");
 
         TextView textView = (TextView)findViewById(R.id.textView1);
-        textView.setText(textViewList.get(counter));
+        textView.setText(textViewList.get(counter+1));
         counter += 1;
 
-        if (counter > 4){
+        if (counter > 5){
             counter = 0;
         }
     }

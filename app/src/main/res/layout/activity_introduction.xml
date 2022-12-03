@@ -1,47 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pixel_pastel"
     android:orientation="vertical"
-    tools:context=".IntroductionActivity"
-    android:background="@drawable/pixel_pastel">
+    app:layoutDescription="@xml/activity_introduction_scene"
+    tools:context=".IntroductionActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="386dp"
+        app:srcCompat="@drawable/hat_rat"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="59dp" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/cream_rounded_edit_text"
         android:fontFamily="@font/fredoka_one"
         android:text="Oh…it’s you. Ugh."
-        android:layout_gravity="center_horizontal"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="93dp"
-        android:background="@drawable/cream_rounded_edit_text"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.683"
+        android:textSize="20dp"/>
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="261dp"
-        android:layout_height="386dp"
-        app:srcCompat="@drawable/hat_rat"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="143dp"
-        />
-
-    <Button
-        android:id="@+id/buttonNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:onClick="cycleText"/>
 
     <Button
         android:id="@+id/buttonGoBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="switchHome"
         android:text="Back to Login"
-        android:onClick="switchHome"/>
+        app:cornerRadius="15dp"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.935" />
+
+    <Button
+        android:id="@+id/buttonNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="cycleText"
+        android:text="Next"
+        android:textSize="12dp"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.806" />
 
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.motion.widget.MotionLayout>
