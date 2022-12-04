@@ -9,14 +9,15 @@
 
     <TextView
         android:id="@+id/waterLogTV"
+        style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/fredoka_one"
         android:text="Water Log"
-        android:textColor="@color/space_cadet"
-        android:textSize="48sp" />
+        android:textColor="@color/lavender_blush"
+        android:textSize="44sp" />
 
     <EditText
         android:id="@+id/editTextWaterLog"
@@ -25,16 +26,16 @@
         android:layout_below="@id/waterLogTV"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
-        android:background="@drawable/space_rounded_edit_text"
+        android:background="@drawable/purple_rounded_edit_text"
         android:ems="10"
         android:fontFamily="@font/margarine"
         android:hint="Enter oz. drank..."
         android:inputType="textPersonName"
         android:padding="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF" />
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
 
     <Button
         android:id="@+id/logWaterButton"
@@ -43,11 +44,11 @@
         android:layout_below="@id/editTextWaterLog"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:backgroundTint="@color/space_cadet"
+        android:backgroundTint="@color/languid_lavender"
         android:fontFamily="@font/margarine"
+        android:onClick="addWaterButtonClicked"
         android:text="Log Water"
-        android:textColor="@color/white"
-        android:onClick="addWaterButtonClicked"/>
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/waterLogActTV"
@@ -56,11 +57,11 @@
         android:layout_below="@id/logWaterButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="75dp"
-        android:background="@drawable/space_rounded_edit_text"
+        android:background="@drawable/purple_rounded_edit_text"
         android:fontFamily="@font/margarine"
         android:gravity="center"
         android:padding="10dp"
         android:text="Water Consumed"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/black" />
 
 </RelativeLayout>

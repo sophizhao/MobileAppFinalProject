@@ -15,8 +15,10 @@
         android:layout_marginTop="100dp"
         android:fontFamily="@font/fredoka_one"
         android:text="Sleep Tracker"
+        style="@style/Title"
         android:textColor="@color/space_cadet"
-        android:textSize="48sp" />
+        android:textSize="45sp"
+        android:gravity="center"/>
 
     <EditText
         android:id="@+id/hoursSleptET"
@@ -25,7 +27,7 @@
         android:layout_below="@id/titleTV"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="138dp"
+        android:layout_marginTop="90dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/space_rounded_edit_text"
         android:ems="10"
@@ -42,12 +44,27 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/hoursSleptET"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="@color/space_cadet"
         android:fontFamily="@font/margarine"
-        android:textColor="@color/white"
+        android:onClick="addSleepButtonClicked"
         android:text="Log Hours"
-        app:cornerRadius="20dp"
-        android:onClick="addSleepButtonClicked"/>
+        android:textColor="@color/white"
+        app:cornerRadius="20dp" />
+
+    <TextView
+        android:id="@+id/sleepLogActTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logHoursButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/space_rounded_edit_text"
+        android:fontFamily="@font/margarine"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Hours Slept"
+        android:textColor="@color/white" />
+
 
 </RelativeLayout>

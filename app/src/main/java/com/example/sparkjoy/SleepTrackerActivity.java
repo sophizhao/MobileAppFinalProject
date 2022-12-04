@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 public class SleepTrackerActivity extends AppCompatActivity {
 
     EditText sleepLog;
+    TextView sleepLogTV;
     final String TAG = "Sparky";
     ArrayList<DailyInfo> myList = MainActivity.firebaseHelper.getDailyInfos();
 
@@ -24,6 +26,7 @@ public class SleepTrackerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sleep_tracker);
         sleepLog = findViewById(R.id.hoursSleptET);
+        sleepLogTV = findViewById(R.id.sleepLogActTV);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -46,6 +49,7 @@ public class SleepTrackerActivity extends AppCompatActivity {
             MainActivity.firebaseHelper.addData(newDI);
         }
         sleepLog.setText("");
+        sleepLogTV.setText(""+sleep);
     }
 
 }

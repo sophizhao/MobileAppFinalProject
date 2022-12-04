@@ -74,10 +74,12 @@
         android:layout_marginTop="32dp"
         android:fontFamily="@font/fredoka_one"
         android:text="Sparkplug's Potion"
-        android:textSize="40sp"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        style="@style/Title"/>
 
     <ImageView
         android:id="@+id/imageView2"
