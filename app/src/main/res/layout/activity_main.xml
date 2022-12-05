@@ -87,7 +87,7 @@
         android:layout_marginTop="50dp"
         android:backgroundTint="@color/languid_lavender"
         android:fontFamily="@font/fredoka_one"
-        android:text="Get Started"
+        android:text="Introduction"
         android:layout_gravity="center_horizontal"
         android:textSize="12sp"
         app:cornerRadius="30dp"
