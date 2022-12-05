@@ -90,13 +90,13 @@ public class PotionActivity extends AppCompatActivity {
         double[] waterAndSleepData7 = findWaterandSleep();
 
         LineGraphSeries<DataPoint> sleepSeries = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(1, waterAndSleepData[1]),
-                new DataPoint(2, waterAndSleepData2[1]),
-                new DataPoint(3, waterAndSleepData3[1]),
+                new DataPoint(1, waterAndSleepData7[1]),
+                new DataPoint(2, waterAndSleepData6[1]),
+                new DataPoint(3, waterAndSleepData5[1]),
                 new DataPoint(4, waterAndSleepData4[1]),
-                new DataPoint(5, waterAndSleepData5[1]),
-                new DataPoint(6, waterAndSleepData6[1]),
-                new DataPoint(7, waterAndSleepData7[1])
+                new DataPoint(5, waterAndSleepData3[1]),
+                new DataPoint(6, waterAndSleepData2[1]),
+                new DataPoint(7, waterAndSleepData[1])
         });
 
         sleepSeries.setColor(Color.rgb(255, 183, 255));
@@ -107,13 +107,13 @@ public class PotionActivity extends AppCompatActivity {
         sleepSeries.setDataPointsRadius(15);
 
         LineGraphSeries<DataPoint> waterSeries = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(1, waterAndSleepData[0]),
-                new DataPoint(2, waterAndSleepData2[0]),
-                new DataPoint(3, waterAndSleepData3[0]),
+                new DataPoint(1, waterAndSleepData7[0]),
+                new DataPoint(2, waterAndSleepData6[0]),
+                new DataPoint(3, waterAndSleepData5[0]),
                 new DataPoint(4, waterAndSleepData4[0]),
-                new DataPoint(5, waterAndSleepData5[0]),
-                new DataPoint(6, waterAndSleepData6[0]),
-                new DataPoint(7, waterAndSleepData7[0])
+                new DataPoint(5, waterAndSleepData3[0]),
+                new DataPoint(6, waterAndSleepData2[0]),
+                new DataPoint(7, waterAndSleepData[0])
         });
 
         waterSeries.setColor(Color.rgb(200, 121, 255));
