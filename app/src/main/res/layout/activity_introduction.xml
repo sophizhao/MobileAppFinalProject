@@ -17,23 +17,24 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="59dp" />
 
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/myMargin"
         android:background="@drawable/cream_rounded_edit_text"
         android:fontFamily="@font/fredoka_one"
+        android:padding="@dimen/myPadding"
         android:text="Oh…it’s you. Ugh."
         android:textAlignment="center"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.683"
-        android:textSize="20dp"/>
-
+        app:layout_constraintVertical_bias="0.633" />
 
     <Button
         android:id="@+id/buttonGoBack"
@@ -64,7 +65,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.806" />
+        app:layout_constraintVertical_bias="0.792" />
 
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

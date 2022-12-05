@@ -105,20 +105,20 @@ public class CalendarActivity extends AppCompatActivity {
             waterDisplay.setText("You drank " + waterAndSleepData[0] + " oz of water. Are you okay?");
         }
         else {
-            waterDisplay.setText("You didn't log anything...");
+            waterDisplay.setText("You didn't log any water...");
         }
 
         if(waterAndSleepData[1] >= 12){
-            waterDisplay.setText("You slept " + waterAndSleepData[1] + " hours. More than the average horse.");
+            sleepDisplay.setText("You slept " + waterAndSleepData[1] + " hours. More than the average horse.");
         } else if(waterAndSleepData[1] >= 8){
-            waterDisplay.setText("You slept " + waterAndSleepData[1] + " hours. Perfectly balanced, as all things should be.");
+            sleepDisplay.setText("You slept " + waterAndSleepData[1] + " hours. Perfectly balanced, as all things should be.");
         } else if(waterAndSleepData[1] >= 4){
-            waterDisplay.setText("You slept " + waterAndSleepData[1] + " hours. So, you're bad at lying down and not doing anything. What happens when you have to do things?");
+            sleepDisplay.setText("You slept " + waterAndSleepData[1] + " hours. So, you're bad at lying down and not doing anything. What happens when you have to do things?");
         } else if(waterAndSleepData[1] > 0){
-            waterDisplay.setText("You slept " + waterAndSleepData[1] + " hours. Sure... let's call it \"sleeping.\"");
+            sleepDisplay.setText("You slept " + waterAndSleepData[1] + " hours. Sure... let's call it \"sleeping.\"");
         }
         else {
-            waterDisplay.setText("You didn't log anything...");
+            sleepDisplay.setText("You didn't log any sleep...");
         }
 
         Log.d(TAG, "Day is loaded");

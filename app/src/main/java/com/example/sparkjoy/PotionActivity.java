@@ -11,8 +11,8 @@ import android.widget.CalendarView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.jjoe64.graphview.GraphView;
@@ -81,7 +81,7 @@ public class PotionActivity extends AppCompatActivity {
         cal.set(year, month, date);
         mms = cal.getTimeInMillis();
         double[] waterAndSleepData6 = findWaterandSleep();
-        
+
         date = checkNewDay(date, month);
         month = checkNewMonth(date, month);
         cal.clear();

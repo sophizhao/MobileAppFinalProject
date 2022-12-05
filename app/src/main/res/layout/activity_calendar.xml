@@ -4,60 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalendarActivity"
-    android:background="@drawable/pixeljournal">
+    android:background="@drawable/pixelsky"
+    tools:context=".CalendarActivity">
 
     <CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="363dp"
-        android:layout_height="299dp"
-        android:selectedWeekBackgroundColor="#FFFFFF"
-        android:unfocusedMonthDateColor="#FFFFFF"
-        android:weekDayTextAppearance="@color/white"
-        android:weekNumberColor="#FFFFFF"
-        android:weekSeparatorLineColor="#FFFFFF"
+        android:layout_width="360dp"
+        android:layout_height="320dp"
+        android:padding="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/moodTV"
-        app:layout_constraintVertical_bias="0.438" />
+        app:layout_constraintVertical_bias="0.934" />
 
     <TextView
         android:id="@+id/moodTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:fontFamily="@font/bellota"
+        android:layout_marginLeft="@dimen/calendarTextMargin"
+        android:layout_marginTop="116dp"
+        android:layout_marginRight="@dimen/calendarTextMargin"
+        android:fontFamily="@font/pixellari"
         android:gravity="center"
         android:text="Mood"
-        android:textSize="20sp"
+        android:textColor="@color/cream"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/journaledTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="Journaled"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moodTV" />
-
-    <TextView
         android:id="@+id/sleepTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="@dimen/calendarTextMargin"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="@dimen/calendarTextMargin"
+        android:fontFamily="@font/pixellari"
         android:gravity="center"
         android:text="Hours of Sleep"
-        android:textSize="20sp"
+        android:textColor="@color/cream"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/waterTV" />
 
@@ -65,24 +56,47 @@
         android:id="@+id/waterTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="@dimen/calendarTextMargin"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="@dimen/calendarTextMargin"
+        android:fontFamily="@font/pixellari"
         android:gravity="center"
         android:text="Oz. of Water"
-        android:textSize="20sp"
+        android:textColor="@color/cream"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/journaledTV" />
+
+    <TextView
+        android:id="@+id/journaledTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/calendarTextMargin"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="@dimen/calendarTextMargin"
+        android:fontFamily="@font/pixellari"
+        android:gravity="center"
+        android:text="Journaled"
+        android:textColor="@color/cream"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moodTV" />
 
     <TextView
         android:id="@+id/dateTV"
         style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/title_font"
+        android:gravity="center"
         android:text="Select a Date"
+        android:textColor="@color/cream"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

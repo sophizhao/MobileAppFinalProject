@@ -9,4 +9,5 @@
     <dimen name="myMargin">30dp</dimen>
     <dimen name="buttonWidth">133dp</dimen>
     <dimen name="buttonHeight">100dp</dimen>
+    <dimen name="calendarTextMargin">20dp</dimen>
 </resources>
