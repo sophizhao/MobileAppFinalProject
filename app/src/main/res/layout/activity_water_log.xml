@@ -44,7 +44,7 @@
         android:layout_below="@id/editTextWaterLog"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:backgroundTint="@color/languid_lavender"
+        android:background="@drawable/purple_rounded_edit_text"
         android:fontFamily="@font/margarine"
         android:onClick="addWaterButtonClicked"
         android:text="Log Water"
