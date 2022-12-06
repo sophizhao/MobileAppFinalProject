@@ -8,14 +8,14 @@
 
     <TextView
         android:id="@+id/journal_textView"
+        style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="28dp"
         android:text="Sparkplug's Void"
-        style="@style/Title"
         android:textColor="@color/cream"
-        android:textSize="30sp"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
