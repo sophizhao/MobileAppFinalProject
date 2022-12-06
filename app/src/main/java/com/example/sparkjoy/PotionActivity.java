@@ -128,6 +128,7 @@ public class PotionActivity extends AppCompatActivity {
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(1);
         graph.getViewport().setMaxX(7);
+        graph.setBackgroundColor(Color.argb(170, 110, 61, 255));
 
     }
     public double[] findWaterandSleep(){
