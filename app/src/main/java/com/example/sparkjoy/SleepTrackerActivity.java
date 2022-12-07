@@ -3,13 +3,10 @@ package com.example.sparkjoy;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,36 +20,13 @@ public class SleepTrackerActivity extends AppCompatActivity {
     final String TAG = "Sparky";
     ArrayList<DailyInfo> myList = MainActivity.firebaseHelper.getDailyInfos();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sleep_tracker);
         sleepLog = findViewById(R.id.hoursSleptET);
         sleepLogTV = findViewById(R.id.sleepLogActTV);
-    }
-
-    private void closeKeyboard()
-    {
-        // this will give us the view
-        // which is currently focus
-        // in this layout
-        View view = this.getCurrentFocus();
-
-        // if nothing is currently
-        // focus then this will protect
-        // the app from crash
-        if (view != null) {
-
-            // now assign the system
-            // service to InputMethodManager
-            InputMethodManager manager
-                    = (InputMethodManager)
-                    getSystemService(
-                            Context.INPUT_METHOD_SERVICE);
-            manager
-                    .hideSoftInputFromWindow(
-                            view.getWindowToken(), 0);
-        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -76,8 +50,6 @@ public class SleepTrackerActivity extends AppCompatActivity {
         }
         sleepLog.setText("");
         sleepLogTV.setText(""+sleep);
-        closeKeyboard();
     }
-
 
 }

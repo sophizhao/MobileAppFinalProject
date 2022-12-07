@@ -5,7 +5,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -118,30 +116,6 @@ public class MainActivity extends AppCompatActivity  {
         startActivity(intent);
     }
 
-    private void closeKeyboard()
-    {
-        // this will give us the view
-        // which is currently focus
-        // in this layout
-        View view = this.getCurrentFocus();
-
-        // if nothing is currently
-        // focus then this will protect
-        // the app from crash
-        if (view != null) {
-
-            // now assign the system
-            // service to InputMethodManager
-            InputMethodManager manager
-                    = (InputMethodManager)
-                    getSystemService(
-                            Context.INPUT_METHOD_SERVICE);
-            manager
-                    .hideSoftInputFromWindow(
-                            view.getWindowToken(), 0);
-        }
-    }
-
     /**
      * Method first checks if the input is valid.  If it meets the screening criteria from
      * getValues(), then the username (which is an email) and password are sent to the FirebaseHelper
@@ -163,7 +137,6 @@ public class MainActivity extends AppCompatActivity  {
 
     public void signUpClicked(View view) {
         Log.i(TAG, "Sign up clicked");
-        closeKeyboard();
         if (getValues()) {      // get username and password
             // Try to create an account using auth
             firebaseHelper.getmAuth().createUserWithEmailAndPassword(userName, password)
@@ -233,7 +206,6 @@ public class MainActivity extends AppCompatActivity  {
 
     public void logInClicked(View view) {
         Log.i(TAG, "Log in clicked");
-        closeKeyboard();
         if (getValues()) {        // get username and password
             // if valid, log in user and then switch to next activity
             // Try to sign into an account using auth with given email and password

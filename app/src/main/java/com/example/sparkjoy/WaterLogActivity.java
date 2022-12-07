@@ -3,12 +3,10 @@ package com.example.sparkjoy;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,34 +31,11 @@ public class WaterLogActivity extends AppCompatActivity {
         waterLogTV = findViewById(R.id.waterLogActTV);
     }
 
-    private void closeKeyboard()
-    {
-        // this will give us the view
-        // which is currently focus
-        // in this layout
-        View view = this.getCurrentFocus();
-
-        // if nothing is currently
-        // focus then this will protect
-        // the app from crash
-        if (view != null) {
-
-            // now assign the system
-            // service to InputMethodManager
-            InputMethodManager manager
-                    = (InputMethodManager)
-                    getSystemService(
-                            Context.INPUT_METHOD_SERVICE);
-            manager
-                    .hideSoftInputFromWindow(
-                            view.getWindowToken(), 0);
-        }
-    }
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void addWaterButtonClicked(View view){
         Toast.makeText(getApplicationContext(), "Ounces logged!", Toast.LENGTH_SHORT).show();
         double water = Double.parseDouble(waterLog.getText().toString());
+
 // search through data to see if one exists
         //if data exists for today, set journal to true
         //if data doesn't, add new data
@@ -78,7 +53,6 @@ public class WaterLogActivity extends AppCompatActivity {
 
         waterLog.setText("");
         waterLogTV.setText(""+water);
-        closeKeyboard();
     }
 
 
