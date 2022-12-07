@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="52dp"
-        android:text="Sleep"
+        android:text="Sleep (Hours)"
         android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/graph" />
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="96dp"
-        android:text="Water"
+        android:text="Water (Cups)"
         android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/purpleIV"
         app:layout_constraintTop_toBottomOf="@+id/graph" />
