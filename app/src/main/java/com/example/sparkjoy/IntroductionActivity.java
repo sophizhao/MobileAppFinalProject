@@ -28,15 +28,17 @@ public class IntroductionActivity extends AppCompatActivity {
         textViewList.add("Oh…it’s you. Ugh.");
         textViewList.add("I suppose I should introduce myself. My name is Sparkplug and this is my app, Spark Joy. You seem sad today. Maybe start tracking your mood with the Mood Meter?");
         textViewList.add("Or, since the circles under your eyes are darker than usual, you might want to use the sleep tracker.");
-        textViewList.add("You need more than an ounce of water per day–you know that, right? Perhaps the Water Log will put that into perspective...");
+        textViewList.add("You need more than an ounce of water per day—you know that, right? Perhaps the Water Log will put that into perspective...");
         textViewList.add("If you want to stay dehydrated and tired, I suggest you be productive too. Journal perhaps?");
+        textViewList.add("To see some of your past records, click on the calendar and scroll to see all of your data for that day.");
+        textViewList.add("Lastly, my wicked potion gives you a 7-day graphical look at your water and sleep.");
         textViewList.add("Whichever one you choose, click the 'Back To Login' button to start. Enjoy...");
 
         TextView textView = (TextView)findViewById(R.id.textView1);
         textView.setText(textViewList.get(counter+1));
         counter += 1;
 
-        if (counter > 5){
+        if (counter > 7){
             counter = 0;
         }
     }

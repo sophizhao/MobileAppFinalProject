@@ -8,14 +8,14 @@
 
     <TextView
         android:id="@+id/journal_textView"
+        style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="28dp"
         android:text="Sparkplug's Void"
-        style="@style/Title"
         android:textColor="@color/cream"
-        android:textSize="30sp"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
         android:id="@+id/journal_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/margarine"
         android:text="Prompt:"
         android:textColor="@color/cream"
@@ -35,9 +35,9 @@
 
     <EditText
         android:id="@+id/journalEntry"
-        android:layout_width="304dp"
-        android:layout_height="274dp"
-        android:layout_marginTop="112dp"
+        android:layout_width="360dp"
+        android:layout_height="231dp"
+        android:layout_marginTop="96dp"
         android:autoText="false"
         android:background="@drawable/cream_rounded_edit_text"
         android:ems="10"
@@ -46,7 +46,7 @@
         android:hint="Journal into the void..."
         android:inputType="textCapSentences|textMultiLine"
         android:maxLength="280"
-        android:maxLines="9"
+        android:maxLines="7"
         android:padding="@dimen/myPadding"
         android:scrollHorizontally="false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="424dp"
+        android:layout_marginTop="348dp"
         android:fontFamily="@font/margarine"
         android:onClick="addJournalButtonClicked"
         android:text="Save Entry"
@@ -80,5 +80,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/journal_prompt" />
+        app:layout_constraintTop_toBottomOf="@+id/journal_prompt"
+        android:paddingLeft="@dimen/calendarTextMargin"
+        android:paddingRight="@dimen/calendarTextMargin"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

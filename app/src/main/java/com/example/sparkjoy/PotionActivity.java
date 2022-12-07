@@ -20,6 +20,7 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.text.DateFormatSymbols;
+import java.text.DecimalFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -31,6 +32,8 @@ public class PotionActivity extends AppCompatActivity {
     long mms;
     private static final String TAG = "Sparkplug";
     ArrayList<DailyInfo> myList = MainActivity.firebaseHelper.getDailyInfos();
+    private static DecimalFormat df = new DecimalFormat("0.00");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +137,9 @@ public class PotionActivity extends AppCompatActivity {
         for(int i = 0; i < myList.size(); i++){
             if(myList.get(i).equals(new DailyInfo(mms))){
                 Log.d(TAG, "yes DailyInfo exists for date (water): " + myList.indexOf(new DailyInfo(mms)));
-                double[] data = {myList.get(i).getWater(),myList.get(i).getSleep()};
+                double conversion = myList.get(i).getWater()/8.0;
+                double cups = Double.parseDouble(df.format(conversion));
+                double[] data = {cups, myList.get(i).getSleep()};
                 Log.d(TAG, "datalist is" + data.toString());
                 return data;
             }
