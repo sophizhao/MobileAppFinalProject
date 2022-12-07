@@ -40,7 +40,7 @@
     <Button
         android:id="@+id/logHoursButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_below="@id/hoursSleptET"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
@@ -49,7 +49,7 @@
         android:onClick="addSleepButtonClicked"
         android:text="Log Hours"
         android:textColor="@color/white"
-        app:cornerRadius="20dp" />
+        app:cornerRadius="15dp" />
 
     <TextView
         android:id="@+id/sleepLogActTV"
