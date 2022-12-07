@@ -60,19 +60,18 @@ public class JournalActivity extends AppCompatActivity {
     public void addJournalButtonClicked(View view){
         Toast.makeText(getApplicationContext(), "Journal added!", Toast.LENGTH_SHORT).show();
         String journalEntry = journal.getText().toString();
-        Log.d(TAG, journalEntry);
 
 // search through data to see if one exists
         //if data exists for today, set journal to true
         //if data doesn't, add new data
         if(myList.contains(new DailyInfo())){
             int ind = myList.indexOf(new DailyInfo()); //should only check date?!?!?!?!?!??!!
-            myList.get(ind).setJournaled(journalEntry);
+            myList.get(ind).setJournaled(true);
             MainActivity.firebaseHelper.editData(myList.get(ind));
-            Log.d(TAG, "set journal logged");
+            Log.d(TAG, "set journal logged to " + true);
         } else {
             DailyInfo newDI = new DailyInfo();
-            newDI.setJournaled(journalEntry);
+            newDI.setJournaled(true);
             MainActivity.firebaseHelper.addData(newDI);
         }
 

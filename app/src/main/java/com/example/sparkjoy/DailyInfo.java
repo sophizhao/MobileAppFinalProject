@@ -13,7 +13,7 @@ import java.util.Calendar;
 
 public class DailyInfo {
     private int mood;
-    private String journaled;
+    private boolean journaled;
     private double water;
     private double sleep;
     private long date;
@@ -25,7 +25,7 @@ public class DailyInfo {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public DailyInfo() {
         this.mood = 0;
-        this.journaled = "";
+        this.journaled = false;
         this.water = 0.0;
         this.sleep = 0.0;
         Calendar cal = Calendar.getInstance();
@@ -43,7 +43,7 @@ public class DailyInfo {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public DailyInfo(long date) {
         this.mood = 0;
-        this.journaled = "";
+        this.journaled = false;
         this.water = 0.0;
         this.sleep = 0.0;
         this.date = date;
@@ -94,11 +94,11 @@ public class DailyInfo {
         this.mood = mood;
     }
 
-    public String journal() {
+    public boolean isJournaled() {
         return journaled;
     }
 
-    public void setJournaled(String journaled) {
+    public void setJournaled(boolean journaled) {
         this.journaled = journaled;
     }
 

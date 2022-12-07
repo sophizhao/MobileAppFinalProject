@@ -88,8 +88,8 @@ public class CalendarActivity extends AppCompatActivity {
                 break;
         }
 
-        if(!checkIfJournaled().equals("")) {
-            journaledDisplay.setText(checkIfJournaled());
+        if(checkIfJournaled()) {
+            journaledDisplay.setText("You journaled today!");
         } else {
             journaledDisplay.setText("Seems like you were too lazy to journal...");
         }
@@ -148,7 +148,7 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public String checkIfJournaled(){
+    public boolean checkIfJournaled(){
         LocalDate date = Instant.ofEpochMilli(mms).atZone(ZoneId.systemDefault()).toLocalDate();
 
 //        if(DailyInfo.allData.contains(new DailyInfo())){
@@ -156,11 +156,11 @@ public class CalendarActivity extends AppCompatActivity {
                 if(myList.get(i).equals(new DailyInfo(mms))){
                     Log.d(TAG, "yes DailyInfo exists for date (journal): " + myList.indexOf(new DailyInfo(mms)));
 
-                    return myList.get(i).journal();
+                    return myList.get(i).isJournaled();
                 }
             }
 //        }
-        return "";
+        return false;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
