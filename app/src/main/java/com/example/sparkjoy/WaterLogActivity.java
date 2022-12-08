@@ -51,7 +51,7 @@ public class WaterLogActivity extends AppCompatActivity {
             }
 
             waterLog.setText("");
-            waterLogTV.setText(""+water);
+            waterLogTV.setText(""+water + " oz.");
 
             //Keyboard close on button click below from https://stackoverflow.com/a/27228592
             try {

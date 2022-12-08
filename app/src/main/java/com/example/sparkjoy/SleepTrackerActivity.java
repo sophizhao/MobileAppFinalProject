@@ -52,7 +52,7 @@ public class SleepTrackerActivity extends AppCompatActivity {
                 MainActivity.firebaseHelper.addData(newDI);
             }
             sleepLog.setText("");
-            sleepLogTV.setText(""+sleep);
+            sleepLogTV.setText(""+sleep + " hours");
 
             //Keyboard close on button click below from https://stackoverflow.com/a/27228592
             try {

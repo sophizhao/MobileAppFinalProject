@@ -75,16 +75,16 @@ public class CalendarActivity extends AppCompatActivity {
                 moodDisplay.setText("No mood selected for today. Boring.");
                 break;
             case 1:
-                moodDisplay.setText("Mood: High energy, low happiness");
+                moodDisplay.setText("Mood: High energy, low happiness. Breathe!");
                 break;
             case 2:
-                moodDisplay.setText("Mood: High energy, high happiness");
+                moodDisplay.setText("Mood: High energy, high happiness. Someone’s excited. Make a new friend?");
                 break;
             case 3:
-                moodDisplay.setText("Mood: Low energy, low happiness");
+                moodDisplay.setText("Mood: Low energy, low happiness. Yeesh. Talk about waking up on the wrong side of the bed...");
                 break;
             case 4:
-                moodDisplay.setText("Mood: Low energy, High happiness");
+                moodDisplay.setText("Mood: Low energy, High happiness. Enjoy the peace, I guess.");
                 break;
         }
 
@@ -96,13 +96,13 @@ public class CalendarActivity extends AppCompatActivity {
 
         double[] waterAndSleepData = findWaterandSleep();
         if(waterAndSleepData[0] >= 120){
-            waterDisplay.setText("You drank " + waterAndSleepData[0] + " oz of water, you sponge.");
+            waterDisplay.setText("You drank " + waterAndSleepData[0] + " oz of water. How did a fish get their hands on my app?");
         } else if(waterAndSleepData[0] >= 80){
             waterDisplay.setText("You drank " + waterAndSleepData[0] + " oz of water. So close... yet so far.");
         } else if(waterAndSleepData[0] >= 40){
             waterDisplay.setText("You drank " + waterAndSleepData[0] + " oz of water. Your kidneys must be happy with you.");
         } else if(waterAndSleepData[0] > 0){
-            waterDisplay.setText("You drank " + waterAndSleepData[0] + " oz of water. Are you okay?");
+            waterDisplay.setText("You drank " + waterAndSleepData[0] + " oz of water. I’d have something to say to you, but you just blew away like a tumbleweed.");
         }
         else {
             waterDisplay.setText("You didn't log any water...");
@@ -113,7 +113,7 @@ public class CalendarActivity extends AppCompatActivity {
         } else if(waterAndSleepData[1] >= 8){
             sleepDisplay.setText("You slept " + waterAndSleepData[1] + " hours. Perfectly balanced, as all things should be.");
         } else if(waterAndSleepData[1] >= 4){
-            sleepDisplay.setText("You slept " + waterAndSleepData[1] + " hours. So, you're bad at lying down and not doing anything. What happens when you have to do things?");
+            sleepDisplay.setText("You slept " + waterAndSleepData[1] + " hours. So, you're bad at lying down and not doing anything?");
         } else if(waterAndSleepData[1] > 0){
             sleepDisplay.setText("You slept " + waterAndSleepData[1] + " hours. Sure... let's call it \"sleeping.\"");
         }
