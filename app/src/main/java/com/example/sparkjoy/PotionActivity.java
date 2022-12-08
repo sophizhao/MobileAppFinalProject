@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -133,6 +134,16 @@ public class PotionActivity extends AppCompatActivity {
         graph.getViewport().setMinX(1);
         graph.getViewport().setMaxX(7);
 
+        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setGridColor(Color.WHITE);
+        graph.getGridLabelRenderer().setHighlightZeroLines(false);
+        graph.getGridLabelRenderer().reloadStyles();
+
+        graph.getGridLabelRenderer().setPadding(50);
+
     }
     public double[] findWaterandSleep(){
         for(int i = 0; i < myList.size(); i++){
@@ -145,7 +156,7 @@ public class PotionActivity extends AppCompatActivity {
                 return data;
             }
         }
-        return new double[]{-1.0,-1.0};
+        return new double[]{0.0,0.0};
     }
 
     public int checkNewDay(int date, int month){
