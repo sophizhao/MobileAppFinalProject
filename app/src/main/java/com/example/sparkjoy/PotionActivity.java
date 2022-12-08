@@ -130,7 +130,9 @@ public class PotionActivity extends AppCompatActivity {
         graph.addSeries(sleepSeries);
         graph.addSeries(waterSeries);
         graph.getViewport().setXAxisBoundsManual(true);
-        graph.setBackgroundColor(Color.argb(200, 71, 31, 191));
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setMaxY(12);
+        graph.setBackgroundColor(Color.argb(200, 86, 44, 191));
         graph.getViewport().setMinX(1);
         graph.getViewport().setMaxX(7);
 
